@@ -1,8 +1,71 @@
 import React, { Component } from 'react';
-
-import logo from './logo.svg';
-
 import './App.css';
+import Table from './components/table'
+
+var dataResponse = [
+  { 
+    id: 1, sharestype: 'Multi-Asset', 
+    shares: [ 
+      { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html" },
+        { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"}
+  ] },
+  { 
+    id: 2, sharestype: 'Equities (Passive)', 
+    shares: [ 
+      { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html" },
+        { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"}
+  ] },
+  { 
+    id: 3, sharestype: 'Fixed Income (Passive)', 
+    shares: [ 
+      { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html" },
+        { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"}
+  ] },
+  { 
+    id: 4, sharestype: 'Equities (Active)', 
+    shares: [ 
+      { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html" },
+        { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"}
+  ] },
+
+  { 
+    id: 5, sharestype: 'Fixed Income (Active)', 
+    shares: [ 
+      { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html" },
+        { ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"},
+        {ticker: "vtivx", type: "Vanguard Target Requirement", risk: "LM", riskType: 1, return: "MH", returnType: "1", expenseRatio: 0.15, 
+        ytdReturn: 2.27, oneYearReturn: 11.7, threeYearReturn: 9.04, fiveYearReturn: 9.49, tenYearReturn: 5.67, rating: 4, quoteLink: "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"}
+  ] }
+]
+ 
 
 class App extends Component {
   state = {
@@ -26,12 +89,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">{this.state.response}</p>
+      <div sharestype="App">
+        <p sharestype="Table-header">401k Tracking & Analysis</p>
+        <Table tableData={dataResponse.filter(data => data.id === 1)}/>
+        <Table tableData={dataResponse.filter(data => data.id === 2)}/>
+        <Table tableData={dataResponse.filter(data => data.id === 3)}/>
+        <Table tableData={dataResponse.filter(data => data.id === 4)}/>
+        <Table tableData={dataResponse.filter(data => data.id === 5)}/>
       </div>
     );
   }
