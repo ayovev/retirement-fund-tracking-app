@@ -1,7 +1,4 @@
 {
-  "name": "retirement-tracking-app",
-  "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
