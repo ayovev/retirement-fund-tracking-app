@@ -3,8 +3,8 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import './../styles/table.css';
 import './../styles/react-bootstrap-table.css';
 
- 
- 
+
+
 class Table extends Component {
   render() {
     return (
@@ -26,5 +26,5 @@ class Table extends Component {
     );
   }
 }
- 
+
 export default Table;
