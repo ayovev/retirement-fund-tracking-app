@@ -2,6 +2,10 @@ require('dotenv').config({path: '../../.env'});
 const assert = require('assert').strict;
 const rp = require('request-promise');
 
+// TODO [Alex] Use moment.js instead of custom Date manipulations
+// const moment = require('moment');
+
+// TODO [Anyone] Move to constants file and modify references?
 const _YTD = 'Year To Date';
 const _1_MONTH = '1 Month';
 const _1_YEAR = '1 Year';
@@ -32,15 +36,60 @@ let options = {
 };
 
 rp(options).then(response => {
-  assert.equal(response.statusCode, 200)
-  const data = JSON.parse(response.body);
-  console.log(calculateReturn(data, _YTD));
-  console.log(calculateReturn(data, _1_MONTH));
-  console.log(calculateReturn(data, _1_YEAR));
-  console.log(calculateReturn(data, _3_YEARS));
-  console.log(calculateReturn(data, _5_YEARS));
-  console.log(calculateReturn(data, _10_YEARS));
+  const body = JSON.parse(response.body)
+  const bodyHasError = checkBodyForError(body);
+  try {
+    assert.equal(bodyHasError, false);
+  }
+  // TODO [Alex] Come up with better / more descriptive error messaging
+  catch (error) {
+    console.error(`ERROR retrieving data for ${options.qs.symbol}`);
+    return;
+  }
+
+  const data = body;
+
+  console.log(runAll(data));
+})
+// TODO [Alex] Come up with better / more descriptive error messaging
+.catch(error => {
+  console.log(`Promise error ${error}`);
 });
+
+function checkBodyForError(body) {
+  if(Object.keys(body).includes(`Error Message`)) {
+    return true;
+  }
+  return false;
+}
+
+function runAll(data) {
+  return {
+    performanceYTD: run(data, _YTD),
+    performance1Month: run(data, _1_MONTH),
+    performance1Year: run(data, _1_YEAR),
+    performance3Years: run(data, _3_YEARS),
+    performance5Years: run(data, _5_YEARS),
+    performance10Years: run(data, _10_YEARS)
+  }
+}
+
+function run(data, period) {
+  const dates = configureDateRange(period);
+  let to = dates.to;
+  let from = dates.from;
+
+  to = formatDate(to);
+  from = formatDate(from);
+
+  let newPrice = data['Time Series (Daily)'][to][`5. adjusted close`];
+  let oldPrice = data['Time Series (Daily)'][from][`5. adjusted close`];
+  let roi = null;
+
+  roi = calculateReturn(period, newPrice, oldPrice);
+
+  return roi;
+}
 
 function configureDateRange(period) {
   let to = new Date();
@@ -51,6 +100,7 @@ function configureDateRange(period) {
 
   to.fix();
   from.fix();
+
   return {
     to: to,
     from: from
@@ -59,6 +109,7 @@ function configureDateRange(period) {
 
 function formatDate(date) {
   let string = null;
+
   string = `${date.getFullYear()}`;
   string += `-`;
   if(date.getMonth() < 10) {
@@ -77,22 +128,8 @@ function formatDate(date) {
   return string;
 }
 
-function calculateReturn(data, period) {
-  const dates = configureDateRange(period);
-  const to = dates.to;
-  const from = dates.from;
-
-  // TODO [Alex] Format date better, put in function
-  let t = formatDate(to);
-  let f = formatDate(from);
-
-  console.log(t);
-  console.log(f);
-
-  let newPrice = data['Time Series (Daily)'][t][`5. adjusted close`];
-  let oldPrice = data['Time Series (Daily)'][f][`5. adjusted close`];
+function calculateReturn(period, newPrice, oldPrice) {
   let roi = null;
-
   switch (period) {
     case _YTD:
       roi = calculateNonAnnualizedReturn(newPrice, oldPrice);
@@ -112,18 +149,16 @@ function calculateReturn(data, period) {
     case _10_YEARS:
       roi = calculateAnnualizedReturn(newPrice, oldPrice, 10);
       break;
-    default:
-      break;
   }
   return roi;
 }
 
-function calculateNonAnnualizedReturn(n,o) {
-  return (n-o)/o;
+function calculateNonAnnualizedReturn(newPrice,oldPrice) {
+  return (newPrice-oldPrice)/oldPrice;
 }
 
-function calculateAnnualizedReturn(n,o,period) {
-  let cumulativeReturn = 1+(n-o)/o;
+function calculateAnnualizedReturn(newPrice,oldPrice,period) {
+  let cumulativeReturn = 1+(newPrice-oldPrice)/oldPrice;
   let holdingPeriod = 365/(period*365);
   let annualizedReturn = (cumulativeReturn**holdingPeriod-1);
   return annualizedReturn;
@@ -150,8 +185,6 @@ function setPeriod(from, period) {
       break;
     case _10_YEARS:
       from.setFullYear(from.getFullYear() - 10);
-      break;
-    default:
       break;
   }
   return from;
