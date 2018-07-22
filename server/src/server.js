@@ -2,22 +2,17 @@ const path = require('path');
 const morgan = require('morgan');
 const express = require('express');
 const app = express();
+var mongoose = require('mongoose');
 var Schemas = require('./schemas/schemas')
+
 const PORT = process.env.PORT || 5000;
 
 
-//Import the mongoose module
-var mongoose = require('mongoose');
-
-//Set up default mongoose connection
+// TODO [Justin] move mongo setup at a later time if needed
 var mongoDB = 'mongodb://127.0.0.1/retirement_db';
 mongoose.connect(mongoDB);
-// Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
-//Get the default connection
 var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
@@ -43,6 +38,8 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
+
+// TODO [Justin] remove test endpoint when Mongo is fully configured
 app.get('/api/test', (req, res) => {
   var returnModel = new Schemas.ReturnModel({'ticker': 'test', 'year': 1, 'value': .5});
 
@@ -57,8 +54,7 @@ app.get('/api/test', (req, res) => {
     } 
     console.log(results);
     res.send(results);
-  });
-  
+  });  
 });
 
 // Handle React routing, return all requests to React app
