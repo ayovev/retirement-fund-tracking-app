@@ -19,7 +19,7 @@
   },
   "scripts": {
     "client": "cd ../client && npm start",
-    "server": "nodemon server.js",
+    "server": "nodemon src/server.js",
     "setup": "npm install && cd ../client && npm install",
     "start": "concurrently \"npm run server\" \"npm run client\" --kill-others-on-fail"
   }
