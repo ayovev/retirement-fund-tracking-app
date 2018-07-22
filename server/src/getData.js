@@ -13,6 +13,7 @@ const _3_YEARS = '3 Years';
 const _5_YEARS = '5 Years';
 const _10_YEARS = '10 Years';
 
+// Remove prototype, make regular function
 Date.prototype.fix = function() {
   let day = this.getDay();
   if(day === 6) {
@@ -138,7 +139,7 @@ function calculateReturn(period, newPrice, oldPrice) {
       roi = calculateNonAnnualizedReturn(newPrice, oldPrice);
       break;
     case _1_YEAR:
-      roi = calculateNonAnnualizedReturn(newPrice, oldPrice);
+      roi = calculateAnnualizedReturn(newPrice, oldPrice, 1);
       break;
     case _3_YEARS:
       roi = calculateAnnualizedReturn(newPrice, oldPrice, 3);
@@ -158,9 +159,9 @@ function calculateNonAnnualizedReturn(newPrice,oldPrice) {
 }
 
 function calculateAnnualizedReturn(newPrice,oldPrice,period) {
-  let cumulativeReturn = 1+(newPrice-oldPrice)/oldPrice;
-  let holdingPeriod = 365/(period*365);
-  let annualizedReturn = (cumulativeReturn**holdingPeriod-1);
+  let cumulativeReturn = 1 + (newPrice - oldPrice) / oldPrice;
+  let holdingPeriod = 365 / (period * 365);
+  let annualizedReturn = cumulativeReturn ** holdingPeriod - 1;
   return annualizedReturn;
 }
 
