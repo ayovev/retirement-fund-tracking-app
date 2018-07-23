@@ -11,11 +11,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -27,11 +49,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -43,11 +87,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -59,11 +125,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       }
@@ -81,11 +169,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -97,11 +207,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -113,11 +245,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -129,11 +283,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       }
@@ -151,11 +327,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -167,11 +365,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -183,11 +403,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -199,11 +441,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       }
@@ -221,11 +485,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -237,11 +523,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -253,11 +561,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -269,11 +599,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       }
@@ -290,12 +642,33 @@
         "riskType": 1,
         "return": "MH",
         "returnType": "1",
-        "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -307,11 +680,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -323,11 +718,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       },
@@ -339,11 +756,33 @@
         "return": "MH",
         "returnType": "1",
         "expenseRatio": 0.15,
-        "ytdreturn": 2.27,
-        "oneyearReturn": 11.7,
-        "threeyearreturn": 9.04,
-        "fiveyearreturn": 9.49,
-        "tenYearReturn": 5.67,
+        "returns": [
+          {
+            "ticker": "vtivx",
+            "year": 0,
+            "value": 2.27
+          },
+          {
+            "ticker": "vtivx",
+            "year": 1,
+            "value": 11.7
+          },
+          {
+            "ticker": "vtivx",
+            "year": 3,
+            "value": 9.04
+          },
+          {
+            "ticker": "vtivx",
+            "year": 5,
+            "value": 9.49
+          },
+          {
+            "ticker": "vtivx",
+            "year": 10,
+            "value": 5.67
+          }
+        ],
         "rating": 4,
         "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
       }
