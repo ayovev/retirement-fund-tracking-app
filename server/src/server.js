@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const express = require('express');
 const app = express();
 var mongoose = require('mongoose');
-var Schemas = require('./schemas/schemas')
+var Schemas = require('./schemas')
 
 const PORT = process.env.PORT || 5000;
 
@@ -41,20 +41,22 @@ app.get('/api/hello', (req, res) => {
 
 // TODO [Justin] remove test endpoint when Mongo is fully configured
 app.get('/api/test', (req, res) => {
-  var returnModel = new Schemas.ReturnModel({'ticker': 'test', 'year': 1, 'value': .5});
+  var returnModel = new Schemas.ReturnModel({ 'ticker': 'test', 'year': 1, 'value': .5 });
 
   returnModel.save(function (err) {
     if (err) return handleError(err);
     console.log('saved return model');
   });
 
-  Schemas.ReturnModel.find({'ticker': 'test'}, function(err, results){
-    if (err){
+  Schemas.ReturnModel.find({ 'ticker': 'test' }, function (err, results) {
+    if (err) {
       console.error(err);
-    } 
+    }
     console.log(results);
     res.send(results);
-  });  
+  });
+
+  Schemas.ReturnModel.populat()
 });
 
 // Handle React routing, return all requests to React app
