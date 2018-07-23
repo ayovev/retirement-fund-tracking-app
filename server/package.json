@@ -9,6 +9,7 @@
   "dependencies": {
     "dotenv": "^6.0.0",
     "express": "^4.16.2",
+    "mongoose": "^5.2.4",
     "morgan": "^1.9.0",
     "request": "^2.87.0",
     "request-promise": "^4.2.2"
@@ -19,8 +20,8 @@
   },
   "scripts": {
     "client": "cd ../client && npm start",
-    "server": "nodemon server.js",
+    "server": "nodemon src/server.js",
     "setup": "npm install && cd ../client && npm install",
-    "start": "concurrently \"npm run server\" \"npm run client\" --kill-others-on-fail"
+    "start": "concurrently \"mongod\" \"npm run server\" \"npm run client\" --kill-others-on-fail"
   }
 }
