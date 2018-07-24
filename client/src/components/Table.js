@@ -11,7 +11,7 @@ class Table extends Component {
     }
 
     return (
-      <BootstrapTable data={this.props.tableData.shares} striped hover condensed version='4'>
+      <BootstrapTable data={this.props.tableData.shares} striped hover condensed>
         <TableHeaderColumn dataField='ticker' isKey>Ticker</TableHeaderColumn>
         <TableHeaderColumn dataField='type'>{this.props.tableData.sharesType}</TableHeaderColumn>
         <TableHeaderColumn dataField='risk'>Risk</TableHeaderColumn>
