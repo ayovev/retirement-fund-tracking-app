@@ -109,9 +109,9 @@ function configureDateRange(period) {
 }
 
 function formatDate(date) {
-  let string = null;
+  let string = ``;
 
-  string = `${date.getFullYear()}`;
+  string += `${date.getFullYear()}`;
   string += `-`;
   if(date.getMonth() < 10) {
     string += `0${date.getMonth() + 1}`;
