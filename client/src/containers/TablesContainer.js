@@ -36,9 +36,8 @@ class TablesContainer extends Component {
         <p sharestype="Table-header">401k Tracking & Analysis</p>
         {
           this.state && this.state.shares && this.state.shares.map((item, id) =>
-            <Table key={id} tableData={item}></Table>
+            <Table class="table-spacing" key={id} tableData={item}></Table>
           )}
-
       </div>
     );
   }
