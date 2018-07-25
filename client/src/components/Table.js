@@ -6,14 +6,14 @@ class Table extends Component {
 
   render() {
     const getReturn = function getReturn(cell, row, index) {
-      let returnItem = cell.find(item => item.year === index);
+      let returnItem = cell.find(item => item.period === index);
       return !returnItem ? 0 : returnItem.value;
     }
 
     return (
-      <BootstrapTable data={this.props.tableData.shares} striped hover condensed>
+      <BootstrapTable data={this.props.tableData.funds} striped hover condensed>
         <TableHeaderColumn dataField='ticker' isKey>Ticker</TableHeaderColumn>
-        <TableHeaderColumn dataField='type'>{this.props.tableData.sharesType}</TableHeaderColumn>
+        <TableHeaderColumn dataField='type'>{this.props.tableData.fundType}</TableHeaderColumn>
         <TableHeaderColumn dataField='risk'>Risk</TableHeaderColumn>
         <TableHeaderColumn dataField='return'>Return</TableHeaderColumn>
         <TableHeaderColumn dataField='expenseRatio'>Expense Ratio</TableHeaderColumn>

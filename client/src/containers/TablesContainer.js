@@ -7,20 +7,20 @@ class TablesContainer extends Component {
   constructor() {
     super();
     this.state = {
-      shares: []
+      funds: []
     };
   }
 
   componentDidMount() {
     this.callApi()
       .then(res => {
-        this.setState({ shares: res });
+        this.setState({ funds: res });
       })
       .catch(err => console.log(err));
   }
 
   callApi = async () => {
-    const response = await fetch('/api/shares');
+    const response = await fetch('/api/funds');
     const body = await response.json();
 
     if (response.status !== 200) {
@@ -35,7 +35,7 @@ class TablesContainer extends Component {
       <div sharestype="App">
         <p sharestype="Table-header">401k Tracking & Analysis</p>
         {
-          this.state && this.state.shares && this.state.shares.map((item, id) =>
+          this.state && this.state.funds && this.state.funds.map((item, id) =>
             <Table class="table-spacing" key={id} tableData={item}></Table>
           )}
       </div>
