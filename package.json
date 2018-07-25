@@ -9,8 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.2.0",
-    "concurrently": "^3.5.0",
-    "nodemon": "^1.18.2"
+    "concurrently": "^3.5.0"
   },
   "scripts": {
     "client": "cd client && npm start",
