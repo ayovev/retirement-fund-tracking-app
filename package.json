@@ -14,14 +14,18 @@
   },
   "scripts": {
     "client": "cd client && npm start",
+    "database": "mongod --fork --logpath /data/db/logs/mongodb.log",
     "server": "cd server && npm start",
     "setup": "npm install && npm run setup-client && npm run setup-server",
     "setup-client": "cd client && npm install",
     "setup-server": "cd server && npm install",
-    "start": "concurrently \"npm run server\" \"npm run client\" --kill-others-on-fail",
+    "start": "concurrently \"npm run database\" \"npm run server\" \"npm run client\" --kill-others-on-fail",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "contributors": ["Alex Yovev", "Justin Peterson"],
+  "contributors": [
+    "Justin Peterson",
+    "Alex Yovev"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ayovev/retirement-tracking-app/issues"
