@@ -1,11 +1,4 @@
 {
-  "name": "retirement-tracking-app",
-  "version": "0.1.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ayovev/retirement-tracking-app"
-  },
-  "private": true,
   "dependencies": {
     "dotenv": "^6.0.0",
     "express": "^4.16.2",
