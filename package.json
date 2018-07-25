@@ -13,7 +13,7 @@
   },
   "scripts": {
     "client": "cd client && npm start",
-    "database": "mongod --logpath /data/db/logs/mongodb.log",
+    "database": "mongod --logpath /data/db/logs/mongodb.log --logappend",
     "server": "cd server && npm start",
     "setup": "npm install && npm run setup-client && npm run setup-server",
     "setup-client": "cd client && npm install",
