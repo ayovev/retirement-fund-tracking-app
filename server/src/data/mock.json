@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "sharesType": "Multi-Asset",
-    "shares": [
+    "fundType": "Multi-Asset",
+    "funds": [
       {
         "ticker": "vtivx",
         "type": "Vanguard Target Requirement",
@@ -13,28 +13,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -51,28 +46,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -89,28 +79,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -127,28 +112,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -159,8 +139,8 @@
   },
   {
     "id": 2,
-    "sharesType": "Equities (Passive)",
-    "shares": [
+    "fundType": "Equities (Passive)",
+    "funds": [
       {
         "ticker": "vtivx",
         "type": "Vanguard Target Requirement",
@@ -171,28 +151,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -209,28 +184,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -247,28 +217,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -285,28 +250,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -317,8 +277,8 @@
   },
   {
     "id": 3,
-    "sharesType": "Fixed Income (Passive)",
-    "shares": [
+    "fundType": "Fixed Income (Passive)",
+    "funds": [
       {
         "ticker": "vtivx",
         "type": "Vanguard Target Requirement",
@@ -329,28 +289,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -367,28 +322,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -405,28 +355,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -443,28 +388,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -475,8 +415,8 @@
   },
   {
     "id": 4,
-    "sharesType": "Equities (Active)",
-    "shares": [
+    "fundType": "Equities (Active)",
+    "funds": [
       {
         "ticker": "vtivx",
         "type": "Vanguard Target Requirement",
@@ -487,28 +427,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -525,28 +460,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -563,28 +493,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -601,28 +526,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -633,8 +553,8 @@
   },
   {
     "id": 5,
-    "sharesType": "Fixed Income (Active)",
-    "shares": [
+    "fundType": "Fixed Income (Active)",
+    "funds": [
       {
         "ticker": "vtivx",
         "type": "Vanguard Target Requirement",
@@ -644,28 +564,23 @@
         "returnType": "1",
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -682,28 +597,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -720,28 +630,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
@@ -758,28 +663,23 @@
         "expenseRatio": 0.15,
         "returns": [
           {
-            "ticker": "vtivx",
-            "year": 0,
+            "period": 0,
             "value": 2.27
           },
           {
-            "ticker": "vtivx",
-            "year": 1,
+            "period": 1,
             "value": 11.7
           },
           {
-            "ticker": "vtivx",
-            "year": 3,
+            "period": 3,
             "value": 9.04
           },
           {
-            "ticker": "vtivx",
-            "year": 5,
+            "period": 5,
             "value": 9.49
           },
           {
-            "ticker": "vtivx",
-            "year": 10,
+            "period": 10,
             "value": 5.67
           }
         ],
