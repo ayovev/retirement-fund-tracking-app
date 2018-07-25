@@ -20,7 +20,7 @@ var FundSchema = new Schema({
     'returns': [ReturnSchema]
 });
 
-var FundModel = mongoose.model('ShareModel', FundSchema);
-var ReturnModel = mongoose.model('ReturnModel', ReturnSchema);
+var Fund = mongoose.model('Fund', FundSchema);
+var Return = mongoose.model('Return', ReturnSchema);
 
-module.exports = { FundModel, ReturnModel }
+module.exports = { Fund, Return }
