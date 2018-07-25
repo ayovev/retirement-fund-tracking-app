@@ -1,3 +1,17 @@
+To seed database with mock data:
+
+`cd` into root directory of project
+
+
+
+`mongoimport --db retirement --collection funds --file "server/src/data/mock.json" --jsonArray
+
+This sets us up to be able to just use a MongoDB and we won't have to change any code to switch to and from dev / staging / prod.
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
