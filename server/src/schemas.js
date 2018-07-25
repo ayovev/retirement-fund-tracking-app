@@ -5,12 +5,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ReturnSchema = new Schema({
-    'ticker': String,
     'year': Number,
     'value': Number
 })
 
-var ShareSchema = new Schema({
+var FundSchema = new Schema({
     'ticker': String,
     'multi-asset': String,
     'risk': String,
@@ -21,7 +20,7 @@ var ShareSchema = new Schema({
     'returns': [ReturnSchema]
 });
 
-var ShareModel = mongoose.model('ShareModel', ShareSchema);
+var FundModel = mongoose.model('ShareModel', FundSchema);
 var ReturnModel = mongoose.model('ReturnModel', ReturnSchema);
 
-module.exports = { ShareModel, ReturnModel }
+module.exports = { FundModel, ReturnModel }
