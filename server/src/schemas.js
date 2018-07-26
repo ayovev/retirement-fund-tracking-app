@@ -5,17 +5,16 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ReturnSchema = new Schema({
-    'year': Number,
+    'period': Number,
     'value': Number
 })
 
 var FundSchema = new Schema({
     'ticker': String,
-    'multi-asset': String,
+    'name': String,
     'risk': String,
     'return': String,
-    'expense-ratio': Number,
-    'ytd': Number,
+    'expenseRatio': Number,
     'rating': Number,
     'returns': [ReturnSchema]
 });

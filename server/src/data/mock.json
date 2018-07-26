@@ -5,11 +5,9 @@
     "funds": [
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -38,11 +36,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -71,11 +67,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -104,11 +98,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -143,11 +135,9 @@
     "funds": [
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -176,11 +166,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -209,11 +197,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -242,11 +228,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -281,11 +265,9 @@
     "funds": [
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -314,11 +296,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -347,11 +327,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -380,11 +358,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -419,11 +395,9 @@
     "funds": [
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -452,11 +426,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -485,11 +457,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -518,11 +488,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -557,43 +525,9 @@
     "funds": [
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
-      },
-      {
-        "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
-        "risk": "LM",
-        "riskType": 1,
-        "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -622,11 +556,9 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
         "expenseRatio": 0.15,
         "returns": [
           {
@@ -655,11 +587,40 @@
       },
       {
         "ticker": "vtivx",
-        "type": "Vanguard Target Requirement",
+        "name": "Vanguard Target Requirement",
         "risk": "LM",
-        "riskType": 1,
         "return": "MH",
-        "returnType": "1",
+        "expenseRatio": 0.15,
+        "returns": [
+          {
+            "period": 0,
+            "value": 2.27
+          },
+          {
+            "period": 1,
+            "value": 11.7
+          },
+          {
+            "period": 3,
+            "value": 9.04
+          },
+          {
+            "period": 5,
+            "value": 9.49
+          },
+          {
+            "period": 10,
+            "value": 5.67
+          }
+        ],
+        "rating": 4,
+        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+      },
+      {
+        "ticker": "vtivx",
+        "name": "Vanguard Target Requirement",
+        "risk": "LM",
+        "return": "MH",
         "expenseRatio": 0.15,
         "returns": [
           {
