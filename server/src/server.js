@@ -11,11 +11,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(DB_URL, {useNewUrlParser: true})
-.then(client => console.log(client.connections[0].readyState));
-mongoose.Promise = global.Promise;
-let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+update(DB_URL);
 
 app.use(morgan('dev', {
   skip: (request, response) => {
@@ -35,14 +31,13 @@ app.use(morgan('dev', {
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/funds', (request, response) => {
-  Schemas.Fund.find(function (error, results) {
-    try {
-      assert.equal(error, null)
-    } catch (error) {
-      console.error("ERROR CAUGHT");
-      console.error(error);
-    }
+  Schemas.Fund.find()
+  .then(results => {
     response.send(results);
+  })
+  .catch(error => {
+    console.error(`ERROR CAUGHT`);
+    console.error(error);
   });
 });
 
@@ -52,3 +47,10 @@ app.get('*', (request, response) => {
 });
 
 app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
+
+async function update(DB_URL) {
+  await mongoose.connect(DB_URL, {useNewUrlParser: true});
+  console.log(mongoose.connection.readyState);
+  const results = await Schemas.Fund.find({id: {$eq: 1}});
+  console.log(results[0]);
+}
