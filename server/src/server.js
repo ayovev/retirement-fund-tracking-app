@@ -1,7 +1,6 @@
 'use strict'
 
 const path = require('path');
-const assert = require('assert').strict;
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Schemas = require('./schemas');
@@ -51,6 +50,4 @@ app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
 async function update(DB_URL) {
   await mongoose.connect(DB_URL, {useNewUrlParser: true});
   console.log(mongoose.connection.readyState);
-  const results = await Schemas.Fund.find({id: {$eq: 1}});
-  console.log(results[0]);
 }
