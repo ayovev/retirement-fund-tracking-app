@@ -94,42 +94,46 @@ function calculateReturn(period, newPrice, oldPrice) {
   let roi = null;
   switch (period) {
     case _YTD:
-      roi = calculateNonAnnualizedReturn(newPrice, oldPrice);
+      roi = calculateAllReturns(newPrice, oldPrice);
       break;
     case _1_MONTH:
-      roi = calculateNonAnnualizedReturn(newPrice, oldPrice);
+      roi = calculateAllReturns(newPrice, oldPrice);
       break;
     case _1_YEAR:
-      roi = calculateAnnualizedReturn(newPrice, oldPrice, 1);
+      roi = calculateAllReturns(newPrice, oldPrice, 1);
       break;
     case _3_YEARS:
-      roi = calculateAnnualizedReturn(newPrice, oldPrice, 3);
+      roi = calculateAllReturns(newPrice, oldPrice, 3);
       break;
     case _5_YEARS:
-      roi = calculateAnnualizedReturn(newPrice, oldPrice, 5);
+      roi = calculateAllReturns(newPrice, oldPrice, 5);
       break;
     case _10_YEARS:
-      roi = calculateAnnualizedReturn(newPrice, oldPrice, 10);
+      roi = calculateAllReturns(newPrice, oldPrice, 10);
       break;
   }
   return roi;
 }
 
-function calculateNonAnnualizedReturn(newPrice,oldPrice) {
-  return (newPrice-oldPrice)/oldPrice;
-}
-
-function calculateAnnualizedReturn(newPrice, oldPrice, period) {
-  let cumulativeReturn = 1 + (newPrice - oldPrice) / oldPrice;
-  let holdingPeriod = 365 / (period * 365);
-  let annualizedReturn = cumulativeReturn ** holdingPeriod - 1;
-  return annualizedReturn;
+function calculateAllReturns(...args) {
+  const newPrice = args[0];
+  const oldPrice = args[1];
+  if(args.length === 2) {
+    return (newPrice - oldPrice) / oldPrice;
+  }
+  else if(args.length === 3) {
+    const period = args[2];
+    let cumulativeReturn = 1 + (newPrice - oldPrice) / oldPrice;
+    let holdingPeriod = 365 / (period * 365);
+    let annualizedReturn = cumulativeReturn ** holdingPeriod - 1;
+    return annualizedReturn;
+  }
 }
 
 function setPeriod(from, period) {
   switch (period) {
     case _YTD:
-      from.subtract(1, 'year')
+      from.subtract(1, 'year');
       from.month(11);
       from.date(31);
       break;
