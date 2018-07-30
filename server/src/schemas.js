@@ -5,21 +5,28 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ReturnSchema = new Schema({
-    'period': Number,
-    'value': Number
+    period: Number,
+    value: Number
 })
 
 var FundSchema = new Schema({
-    'ticker': String,
-    'name': String,
-    'risk': String,
-    'return': String,
-    'expenseRatio': Number,
-    'rating': Number,
-    'returns': [ReturnSchema]
+    ticker: String,
+    name: String,
+    risk: String,
+    return: String,
+    expenseRatio: Number,
+    rating: Number,
+    returns: [ReturnSchema]
 });
 
-var Fund = mongoose.model('Fund', FundSchema);
-var Return = mongoose.model('Return', ReturnSchema);
+var FundTypeSchema = new Schema({
+  fundType: String,
+  funds: [FundSchema]
+});
 
-module.exports = { Fund, Return }
+var Return = mongoose.model('Return', ReturnSchema);
+var Fund = mongoose.model('Fund', FundSchema);
+var FundType = mongoose.model('FundType', FundTypeSchema);
+
+
+module.exports = { Return, Fund, FundType }
