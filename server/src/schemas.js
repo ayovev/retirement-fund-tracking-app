@@ -1,15 +1,17 @@
+// TODO [Anyone] Break up schemas/models into separate files
+
 //Require Mongoose
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 //Define a schema
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var ReturnSchema = new Schema({
+const ReturnSchema = new Schema({
     period: Number,
     value: Number
-})
+});
 
-var FundSchema = new Schema({
+const FundSchema = new Schema({
     ticker: String,
     name: String,
     risk: String,
@@ -19,14 +21,27 @@ var FundSchema = new Schema({
     returns: [ReturnSchema]
 });
 
-var FundTypeSchema = new Schema({
+const FundTypeSchema = new Schema({
   fundType: String,
   funds: [FundSchema]
 });
 
-var Return = mongoose.model('Return', ReturnSchema);
-var Fund = mongoose.model('Fund', FundSchema);
-var FundType = mongoose.model('FundType', FundTypeSchema);
+const UserSchema = new Schema({
+  firstName: String,
+  lastName: String,
+});
 
+const AccountSchema = new Schema({
+  username: String,
+  password: String,
+  user: UserSchema,
+  funds: [FundTypeSchema]
+});
 
-module.exports = { Return, Fund, FundType }
+const Return = mongoose.model('Return', ReturnSchema);
+const Fund = mongoose.model('Fund', FundSchema);
+const FundType = mongoose.model('FundType', FundTypeSchema);
+const User = mongoose.model('User', UserSchema);
+const Account = mongoose.model('Account', AccountSchema);
+
+module.exports = { Return, Fund, FundType, User, Account }
