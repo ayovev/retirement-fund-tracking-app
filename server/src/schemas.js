@@ -26,22 +26,29 @@ const FundTypeSchema = new Schema({
   funds: [FundSchema]
 });
 
+const PlanSchema = new Schema({
+  planAdministrator: String,
+  fundTypes: [FundTypeSchema]
+});
+
 const UserSchema = new Schema({
   firstName: String,
   lastName: String,
+  birthDate: Date
 });
 
 const AccountSchema = new Schema({
   username: String,
   password: String,
   user: UserSchema,
-  funds: [FundTypeSchema]
+  plans: [PlanSchema]
 });
 
 const Return = mongoose.model('Return', ReturnSchema);
 const Fund = mongoose.model('Fund', FundSchema);
 const FundType = mongoose.model('FundType', FundTypeSchema);
+const Plan = mongoose.model('Plan', PlanSchema);
 const User = mongoose.model('User', UserSchema);
 const Account = mongoose.model('Account', AccountSchema);
 
-module.exports = { Return, Fund, FundType, User, Account }
+module.exports = { Return, Fund, FundType, Plan, User, Account }

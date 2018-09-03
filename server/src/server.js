@@ -30,8 +30,9 @@ app.use(morgan('dev', {
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/funds', (request, response) => {
-  Schemas.FundType.find()
+  Schemas.Fund.find()
   .then(results => {
+    console.log(results);
     response.send(results);
   })
   .catch(error => {
@@ -50,7 +51,4 @@ app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
 async function update(DB_URL) {
   await mongoose.connect(DB_URL, {useNewUrlParser: true});
   console.log(mongoose.connection.readyState);
-  Schemas.FundType.find({id: 1})
-  .then(results => console.log(results))
-  .catch(error => console.error(error))
 }

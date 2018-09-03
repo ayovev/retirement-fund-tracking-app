@@ -3,9 +3,9 @@ const assert = require('assert').strict;
 const rp = require('request-promise');
 const moment = require('moment');
 
+// TODO [Alex] Add 1 month data later on
 // TODO [Anyone] Move to constants file and modify references?
 const _YTD = 'Year To Date';
-const _1_MONTH = '1 Month';
 const _1_YEAR = '1 Year';
 const _3_YEARS = '3 Years';
 const _5_YEARS = '5 Years';
@@ -23,7 +23,7 @@ let options = {
 };
 
 rp(options).then(response => {
-  const body = JSON.parse(response.body)
+  const body = JSON.parse(response.body);
   const bodyHasError = checkBodyForError(body);
   try {
     assert.equal(bodyHasError, false);
@@ -54,7 +54,6 @@ function checkBodyForError(body) {
 function runAll(data) {
   return {
     performanceYTD: run(data, _YTD),
-    performance1Month: run(data, _1_MONTH),
     performance1Year: run(data, _1_YEAR),
     performance3Years: run(data, _3_YEARS),
     performance5Years: run(data, _5_YEARS),
@@ -96,9 +95,6 @@ function calculateReturn(period, newPrice, oldPrice) {
     case _YTD:
       roi = calculateAllReturns(newPrice, oldPrice);
       break;
-    case _1_MONTH:
-      roi = calculateAllReturns(newPrice, oldPrice);
-      break;
     case _1_YEAR:
       roi = calculateAllReturns(newPrice, oldPrice, 1);
       break;
@@ -136,9 +132,6 @@ function setPeriod(from, period) {
       from.subtract(1, 'year');
       from.month(11);
       from.date(31);
-      break;
-    case _1_MONTH:
-      from.subtract(1, 'month');
       break;
     case _1_YEAR:
       from.subtract(1, 'year');
