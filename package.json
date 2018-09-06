@@ -13,12 +13,11 @@
   },
   "scripts": {
     "client": "cd client && npm start",
-    "database": "mongod --logpath ~/data/db/logs/mongodb.log --logappend --dbpath ~/data/db --bind_ip 127.0.0.1 --port 27017",
     "server": "cd server && npm start",
     "setup": "npm install && npm run setup-client && npm run setup-server",
     "setup-client": "cd client && npm install",
     "setup-server": "cd server && npm install",
-    "start": "concurrently \"npm run database\" \"npm run server\" \"npm run client\" --kill-others-on-fail",
+    "start": "concurrently \"npm run server\" \"npm run client\" --kill-others-on-fail",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "contributors": [
