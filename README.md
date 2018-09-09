@@ -4,7 +4,9 @@ To seed database with mock data:
 
 
 
-`mongoimport --db retirement --collection funds --file "server/src/data/mock.json" --jsonArray`
+`mongoimport --db retirement --collection funds --file "server/src/data/funds.json" --jsonArray`
+
+`mongoimport --db retirement --collection accounts --file "server/src/data/accounts.json" --jsonArray`
 
 This sets us up to be able to just use a MongoDB and we won't have to change any code to switch to and from dev / staging / prod.
 
