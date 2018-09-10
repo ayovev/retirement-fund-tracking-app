@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "md5": "^2.2.1",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-bootstrap-table": "^4.3.1",

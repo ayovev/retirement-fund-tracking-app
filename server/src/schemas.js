@@ -38,11 +38,12 @@ const UserSchema = new Schema({
 });
 
 const AccountSchema = new Schema({
-  username: String,
+  email: String,
   password: String,
   user: UserSchema,
   plans: [PlanSchema]
 });
+
 
 const Return = mongoose.model('Return', ReturnSchema);
 const Fund = mongoose.model('Fund', FundSchema);

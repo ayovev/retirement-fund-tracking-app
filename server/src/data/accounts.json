@@ -1,0 +1,19 @@
+[
+    {
+        "email": "alexy@funfunds.com",
+        "password": "fcea920f7412b5da7be0cf42b8c93759",
+        "user": {
+            "firstName": "Alex",
+            "lastName": "Yovev",
+            "birthDate": ""
+        }
+    },{
+        "email": "justinp@funfunds.com",
+        "password": "fcea920f7412b5da7be0cf42b8c93759",
+        "user": {
+            "firstName": "Justin",
+            "lastName": "Peterson",
+            "birthDate": "2/5/1988"
+        }
+    }
+]

@@ -11,6 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 update(DB_URL);
+app.use(express.json());
 
 app.use(morgan('dev', {
   skip: (request, response) => {
@@ -31,13 +32,27 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/funds', (request, response) => {
   Schemas.Fund.find()
-  .then(results => {
-    console.log(results);
+  .then(results => {    
     response.send(results);
   })
   .catch(error => {
     console.error(`ERROR CAUGHT`);
     console.error(error);
+  });
+});
+
+app.post('/api/login', (request, response) => {  
+  Schemas.Account.findOne({ 'email': { $eq: request.body.email } })
+  .then(results => 
+  {
+    if(!results){
+      response.sendStatus(204);
+    }
+    else if(results.password !== request.body.password){
+      response.sendStatus(401);
+    }
+    console.log(results);
+    response.send(results);
   });
 });
 
