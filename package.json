@@ -8,8 +8,10 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^5.2.0",
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0",
+    "eslint": "^5.5.0",
+    "eslint-config-google": "^0.10.0",
+    "eslint-plugin-react": "^7.11.1"
   },
   "scripts": {
     "client": "cd client && npm start",
@@ -17,7 +19,7 @@
     "server": "cd server && npm start",
     "setup": "npm install && npm run setup-client && npm run setup-server && npm run setup-database",
     "setup-client": "cd client && npm install",
-    "setup-database": "mongod --fork --syslog --dbpath ~/data/db --bind_ip 127.0.0.1 --port 27017 && mongo retirement --eval \"db.funds.drop()\" && mongoimport --db retirement --collection funds --file \"server/src/data/mock.json\" --jsonArray && mongo admin --eval \"db.shutdownServer()\"",
+    "setup-database": "mongod --fork --syslog --dbpath ~/data/db --bind_ip 127.0.0.1 --port 27017 && mongo retirement --eval \"db.funds.drop()\" && mongo retirement --eval \"db.accounts.drop()\" && mongoimport --db retirement --collection funds --file \"server/src/data/funds.json\" --jsonArray && mongoimport --db retirement --collection accounts --file \"server/src/data/accounts.json\" --jsonArray && mongo admin --eval \"db.shutdownServer()\"",
     "setup-server": "cd server && npm install",
     "start": "concurrently \"npm run database\" \"npm run server\" \"npm run client\" --kill-others-on-fail",
     "test": "echo \"Error: no test specified\" && exit 1"
