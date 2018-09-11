@@ -5,7 +5,7 @@
         "user": {
             "firstName": "Alex",
             "lastName": "Yovev",
-            "birthDate": ""
+            "birthDate": "06/05/1997"
         }
     },{
         "email": "justinp@funfunds.com",
@@ -13,7 +13,7 @@
         "user": {
             "firstName": "Justin",
             "lastName": "Peterson",
-            "birthDate": "2/5/1988"
+            "birthDate": "02/05/1988"
         }
     }
 ]
