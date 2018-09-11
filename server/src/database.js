@@ -1,5 +1,5 @@
 const dbPrefix = `mongodb://`;
-const dbHost = `localhost`;
+const dbHost = `mongo`; // normally set to `localhost` if running node server on host machine
 const dbPort = `27017`;
 const dbName = `retirement`;
 
