@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import './TablesContainer.css';
-import Table from '../components/Table.js'
+import React, { Component } from "react";
+import "./TablesContainer.css";
+import Table from "../components/Table.js";
 
 class TablesContainer extends Component {
 
