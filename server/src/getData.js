@@ -3,7 +3,6 @@ const assert = require('assert').strict;
 const rp = require('request-promise');
 const moment = require('moment');
 
-// TODO [Alex] Add 1 month data later on
 // TODO [Anyone] Move to constants file and modify references?
 const _YTD = 'Year To Date';
 const _1_YEAR = '1 Year';

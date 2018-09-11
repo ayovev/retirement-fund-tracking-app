@@ -1,5 +1,7 @@
+require('dotenv').config({path: '../../.env'});
+
 const dbPrefix = `mongodb://`;
-const dbHost = `mongo`; // normally set to `localhost` if running node server on host machine
+const dbHost = `mongo`;
 const dbPort = `27017`;
 const dbName = `retirement`;
 

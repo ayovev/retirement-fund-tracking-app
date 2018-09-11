@@ -1,5 +1,0 @@
-{
-  "setup-database": "mongod --fork --syslog --dbpath ~/data/db --bind_ip 127.0.0.1 --port 27017 && mongo admin --eval \"db.funds.drop()\" && mongoimport --db retirement --collection funds --file \"server/src/data/mock.json\" --jsonArray && mongo admin --eval \"db.shutdownServer()\"",
-
-  "database": "mongod --logpath ~/data/db/logs/mongodb.log --logappend --dbpath ~/data/db --bind_ip 127.0.0.1 --port 27017"
-}
