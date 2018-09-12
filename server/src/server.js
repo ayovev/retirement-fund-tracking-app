@@ -57,12 +57,6 @@ app.route(`/api/login`)
       });
   });
 
-// Handle client-side requests, send responses to React app
-app.route(`*`)
-  .get((request, response) => {
-    response.sendFile(path.join(__dirname, `client/public`, `index.html`));
-  });
-
 app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
 
 /**
