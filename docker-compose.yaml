@@ -2,7 +2,6 @@ version: "3"
 services:
   app-client:
     container_name: app-client
-    restart: always
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -11,10 +10,15 @@ services:
       - /app/client/node_modules
     ports:
       - 3000:3000
+    links:
+      - app-server
+    restart_policy:
+      - condition: on-failure
+      - delay: 30s
+      - max_attempts: 3
 
   app-server:
     container_name: app-server
-    restart: always
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -23,22 +27,30 @@ services:
       - /app/server/node_modules
     ports:
       - 5000:5000
-    # links:
-    #   - mongo
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    restart_policy:
+      - condition: on-failure
+      - delay: 30s
+      - max_attempts: 3
 
-  # mongo:
-  #   container_name: mongo
-  #   image: mongo
-  #   volumes:
-  #     - ./server/src/data:/seed/data
-  #   ports:
-  #     - "27017:27017"
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./server/src/data:/seed/data
+    ports:
+      - "27017:27017"
 
-  # mongo-seed:
-  #   container_name: mongo-seed
-  #   image: mongo
-  #   links:
-  #     - mongo
-  #   volumes:
-  #     - ./server/src/data:/seed/data
-  #   command: "mongoimport --host mongo --db retirement --collection funds --file \"/seed/data/mock.json\" --jsonArray"
+  mongo-seed:
+    container_name: mongo-seed
+    image: mongo
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    volumes:
+      - ./server/src/data:/seed/data
+    command: "mongoimport --host mongo --db retirement --collection funds --file \"/seed/data/mock.json\" --jsonArray"
