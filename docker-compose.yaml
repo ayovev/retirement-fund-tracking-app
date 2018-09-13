@@ -1,15 +1,40 @@
 version: "3"
 services:
-  app:
-    container_name: app
-    restart: always
-    build: .
-    depends_on:
-      - mongo
+  app-client:
+    container_name: app-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - ./client:/app/client
+      - /app/client/node_modules
     ports:
-      - "3000:3000"
+      - 3000:3000
+    links:
+      - app-server
+    restart_policy:
+      - condition: on-failure
+      - delay: 30s
+      - max_attempts: 3
+
+  app-server:
+    container_name: app-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/app/server
+      - /app/server/node_modules
+    ports:
+      - 5000:5000
     links:
       - mongo
+    depends_on:
+      - mongo
+    restart_policy:
+      - condition: on-failure
+      - delay: 30s
+      - max_attempts: 3
 
   mongo:
     container_name: mongo
@@ -22,6 +47,8 @@ services:
   mongo-seed:
     container_name: mongo-seed
     image: mongo
+    depends_on:
+      - mongo
     links:
       - mongo
     volumes:
