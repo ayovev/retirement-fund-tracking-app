@@ -1,11 +1,11 @@
 # Use an official Node runtime as a parent image
 FROM node:latest
 
-RUN mkdir -p /app/client
+RUN mkdir -p /app-client
 
-WORKDIR /app/client
+WORKDIR /app-client
 
-COPY package.json /app/client/package.json
+COPY package.json /app-client/package.json
 
 RUN npm install
 

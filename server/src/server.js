@@ -10,7 +10,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-update(DB_URL);
+mongoose.connect(DB_URL, {useNewUrlParser: true});
 
 app.use(morgan('dev', {
   skip: (request, response) => {
@@ -48,7 +48,3 @@ app.get('*', (request, response) => {
 
 app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
 
-async function update(DB_URL) {
-  await mongoose.connect(DB_URL, {useNewUrlParser: true});
-  console.log(mongoose.connection.readyState);
-}
