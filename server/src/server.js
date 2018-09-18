@@ -12,8 +12,8 @@ const app = express();
 
 const PORT = 5000;
 
-connect(DB_URL);
-
+mongoose.connect(DB_URL, {useNewUrlParser: true});
+=======
 /* Express Middleware */
 
 // Parse JSON payloads
@@ -58,12 +58,3 @@ app.route(`/api/login`)
   });
 
 app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
-
-/**
- * Synchronously connects to the database URL provided
- * @param {String} DB_URL Database URL
- */
-async function connect(DB_URL) {
-  await mongoose.connect(DB_URL, { useNewUrlParser: true });
-  console.log(mongoose.connection.readyState);
-}

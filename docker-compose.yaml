@@ -1,0 +1,60 @@
+version: "3"
+services:
+  app-client:
+    container_name: app-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - ./client:/app-client
+      - /app-client/node_modules
+    ports:
+      - 3000:3000
+    links:
+      - app-server
+    restart: on-failure
+
+  app-server:
+    container_name: app-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/app-server
+      - /app-server/node_modules
+    ports:
+      - 5000:5000
+    links:
+      - mongo
+    restart: on-failure
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27017:27017
+
+  mongo-seed:
+    container_name: mongo-seed
+    image: mongo
+    volumes:
+      - ./server/src/data:/seed/data
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    command: "mongoimport --host mongo --db retirement --collection funds --file \"/seed/data/mock.json\" --jsonArray"
+
+  mongo-admin:
+    container_name: mongo-admin
+    image: mrvautin/adminmongo
+    environment:
+      - CONN_NAME=admin-connection
+      - DB_HOST=mongo
+      - DB_PORT=27017
+    ports:
+      - 1234:1234
+    links:
+      - mongo
+    depends_on:
+      - mongo
