@@ -43,7 +43,8 @@ services:
       - mongo
     depends_on:
       - mongo
-    command: "mongoimport --host mongo --db retirement --collection funds --file \"/seed/data/mock.json\" --jsonArray"
+    # need to come up with a way to import accounts file as well
+    command: "mongoimport --host mongo --db retirement --collection funds --file \"/seed/data/funds.json\" --jsonArray"
 
   mongo-admin:
     container_name: mongo-admin

@@ -10,10 +10,11 @@ const app = express();
 
 // Possibly implement 'express-validator' for form validation
 
-const PORT = 5000;
+// fix for working better with Docker
+const PORT = process.env.PORT || 5000;
 
 mongoose.connect(DB_URL, {useNewUrlParser: true});
-=======
+
 /* Express Middleware */
 
 // Parse JSON payloads
