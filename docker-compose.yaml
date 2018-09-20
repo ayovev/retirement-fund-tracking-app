@@ -43,8 +43,9 @@ services:
       - mongo
     depends_on:
       - mongo
-    # need to come up with a way to import accounts file as well
-    command: "mongoimport --host mongo --db retirement --collection funds --file \"/seed/data/funds.json\" --jsonArray"
+    command: bash -c "mongo retirement --host mongo --eval \"db.dropDatabase()\" &&
+                      mongoimport --host mongo --db retirement --collection funds --file \"/seed/data/funds.json\" --jsonArray &&
+                      mongoimport --host mongo --db retirement --collection accounts --file \"/seed/data/accounts.json\" --jsonArray"
 
   mongo-admin:
     container_name: mongo-admin

@@ -44,7 +44,7 @@ app.route(`/api/funds`)
 // Authenticate user login request
 app.route(`/api/login`)
   .post((request, response) => {
-    Schemas.Account.findOne({ 'email': { $eq: request.body.email } })
+    Schemas.Account.findOne({ email: { $eq: request.body.email } })
       .then((results) => {
         if (!results) {
           response.sendStatus(204);
