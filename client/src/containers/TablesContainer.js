@@ -12,23 +12,17 @@ class TablesContainer extends Component {
   }
 
   componentDidMount() {
-    this.callApi()
-      .then(res => {
-        this.setState({ funds: res });
-      })
-      .catch(err => console.log(err));
+    fetch(`/api/funds`)
+    .then(response => {
+      return response.json();
+    })
+    .then(body => {
+      this.setState({funds: body});
+    })
+    .catch(error => {
+      console.error(error);
+    })
   }
-
-  callApi = async () => {
-    const response = await fetch('/api/funds');
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
-
-    return body;
-  };
 
   render() {
     return (

@@ -54,7 +54,7 @@ export default class Login extends Component {
       break;
     case 200:
       alert(`Successfully Authenticated`);
-      this.props.history.push(`/`);
+      this.props.history.push(`/tables`);
       break;
     default:
       alert(`Unkown Error ${response.status}`);
