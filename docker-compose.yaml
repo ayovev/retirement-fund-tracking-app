@@ -3,10 +3,10 @@ services:
   app-client:
     container_name: app-client
     build:
-      context: ./client
+      context: ./app-client
       dockerfile: Dockerfile
     volumes:
-      - ./client:/app-client
+      - ./app-client:/app-client
       - /app-client/node_modules
     ports:
       - 3000:3000
@@ -17,10 +17,10 @@ services:
   app-server:
     container_name: app-server
     build:
-      context: ./server
+      context: ./app-server
       dockerfile: Dockerfile
     volumes:
-      - ./server:/app-server
+      - ./app-server:/app-server
       - /app-server/node_modules
     ports:
       - 5000:5000
