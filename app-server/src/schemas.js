@@ -1,24 +1,24 @@
 // TODO [Anyone] Break up schemas/models into separate files
 
-//Require Mongoose
-const mongoose = require('mongoose');
+// Require Mongoose
+const mongoose = require(`mongoose`);
 
-//Define a schema
+// Define a schema
 const Schema = mongoose.Schema;
 
 const ReturnSchema = new Schema({
-    period: Number,
-    value: Number
+  period: Number,
+  value: Number
 });
 
 const FundSchema = new Schema({
-    ticker: String,
-    name: String,
-    risk: String,
-    return: String,
-    expenseRatio: Number,
-    rating: Number,
-    returns: [ReturnSchema]
+  ticker: String,
+  name: String,
+  risk: String,
+  return: String,
+  expenseRatio: Number,
+  rating: Number,
+  returns: [ReturnSchema]
 });
 
 const FundTypeSchema = new Schema({
@@ -45,11 +45,11 @@ const AccountSchema = new Schema({
 });
 
 
-const Return = mongoose.model('Return', ReturnSchema);
-const Fund = mongoose.model('Fund', FundSchema);
-const FundType = mongoose.model('FundType', FundTypeSchema);
-const Plan = mongoose.model('Plan', PlanSchema);
-const User = mongoose.model('User', UserSchema);
-const Account = mongoose.model('Account', AccountSchema);
+const Return = mongoose.model(`Return`, ReturnSchema);
+const Fund = mongoose.model(`Fund`, FundSchema);
+const FundType = mongoose.model(`FundType`, FundTypeSchema);
+const Plan = mongoose.model(`Plan`, PlanSchema);
+const User = mongoose.model(`User`, UserSchema);
+const Account = mongoose.model(`Account`, AccountSchema);
 
-module.exports = { Return, Fund, FundType, Plan, User, Account }
+module.exports = { Return, Fund, FundType, Plan, User, Account };

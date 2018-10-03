@@ -23,7 +23,7 @@ services:
       - ./app-server:/app-server
       - /app-server/node_modules
     ports:
-      - 5000:5000
+      - 3001:3001
     links:
       - mongo
     restart: on-failure

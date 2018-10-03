@@ -16,5 +16,5 @@
     "eject": "react-scripts eject",
     "lint": "eslint --fix ./src/*.js"
   },
-  "proxy": "http://app-server:5000"
+  "proxy": "http://app-server:3001"
 }

@@ -11,9 +11,9 @@ const app = express();
 // Possibly implement 'express-validator' for form validation
 
 // fix for working better with Docker
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 
-mongoose.connect(DB_URL, {useNewUrlParser: true});
+mongoose.connect(DB_URL, { useNewUrlParser: true });
 
 /* Express Middleware */
 
