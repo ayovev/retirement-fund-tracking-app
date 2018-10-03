@@ -5,7 +5,7 @@ RUN mkdir -p /app-client
 
 WORKDIR /app-client
 
-COPY package.json /app-client/package.json
+COPY package*.json /app-client/
 
 RUN npm install
 

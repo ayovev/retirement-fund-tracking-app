@@ -5,10 +5,10 @@ RUN mkdir -p /app-server
 
 WORKDIR /app-server
 
-COPY package.json /app-server/package.json
+COPY package*.json /app-server/
 
 RUN npm install
 
-EXPOSE 5000
+EXPOSE 3001
 
 CMD ["npm","start"]
