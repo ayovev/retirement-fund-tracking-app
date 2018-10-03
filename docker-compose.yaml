@@ -30,13 +30,13 @@ services:
 
   mongo:
     container_name: mongo
-    image: mongo
+    image: mongo:4.0
     ports:
       - 27017:27017
 
   mongo-seed:
     container_name: mongo-seed
-    image: mongo
+    image: mongo:4.0
     volumes:
       - ./server/src/data:/seed/data
     links:
@@ -49,7 +49,7 @@ services:
 
   mongo-admin:
     container_name: mongo-admin
-    image: mrvautin/adminmongo
+    image: mrvautin/adminmongo:latest
     environment:
       - CONN_NAME=admin-connection
       - DB_HOST=mongo
