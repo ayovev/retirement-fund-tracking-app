@@ -7,10 +7,6 @@ import Routes from "./Routes";
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <AuthConsumer>

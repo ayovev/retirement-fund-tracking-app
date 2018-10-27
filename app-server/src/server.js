@@ -7,6 +7,8 @@ const Schemas = require(`./schemas`);
 const DB_URL = require(`./database`);
 const express = require(`express`);
 const app = express();
+const auth = require('./auth/auth');
+const jwt = require('jwt-simple');
 
 // Possibly implement 'express-validator' for form validation
 
@@ -26,11 +28,15 @@ app.use(morgan(`dev`));
 // Serve any static files
 app.use(express.static(path.join(__dirname, `client/build`)));
 
+// Validate auth token when retrieving funds
+app.use('/api/funds', function (req, res, next) {
+  auth.ensureAuthentication(req, res, next);
+})
+
 /* Route Handlers */
 
 // Get all funds associated with an account
-app.route(`/api/funds`)
-  .get((request, response) => {
+app.get(`/api/funds`, (request, response) => {
     Schemas.Fund.find()
       .then((results) => {
         response.send(results);
@@ -42,8 +48,7 @@ app.route(`/api/funds`)
   });
 
 // Authenticate user login request
-app.route(`/api/login`)
-  .post((request, response) => {
+app.post(`/api/login`, (request, response) => {
     Schemas.Account.findOne({ email: { $eq: request.body.email } })
       .then((results) => {
         if (!results) {
@@ -53,9 +58,13 @@ app.route(`/api/login`)
           response.sendStatus(401);
         }
         else {
+          auth.createToken()
+          response.set('Token', results.email);
           response.send(results);
         }
       });
   });
+
+  
 
 app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
