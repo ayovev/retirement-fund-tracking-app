@@ -8,7 +8,7 @@ const DB_URL = require(`./database`);
 const express = require(`express`);
 const app = express();
 const auth = require('./auth/auth');
-const jwt = require('jwt-simple');
+
 
 // Possibly implement 'express-validator' for form validation
 

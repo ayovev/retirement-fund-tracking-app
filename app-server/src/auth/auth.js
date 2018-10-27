@@ -1,3 +1,5 @@
+`use strict`;
+
 const moment = require('moment');
 const jwt = require('jwt-simple');
 const Schemas = require(`./schemas`);
