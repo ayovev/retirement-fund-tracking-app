@@ -14,7 +14,7 @@
   },
   "scripts": {
     "lint": "eslint --fix ./src/*.js",
-    "start": "cd src && nodemon server.js",
+    "start": "cd src && nodemon --inspect server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

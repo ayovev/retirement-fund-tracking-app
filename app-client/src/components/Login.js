@@ -10,8 +10,8 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      email: ``,
-      password: ``,
+      email: '',
+      password: '',
     };
   }
 
@@ -34,27 +34,27 @@ export default class Login extends Component {
     };
 
     const config = {
-      method: `POST`,
+      method: 'POST',
       headers: {
-        'accept': `application/json`,
-        'content-type': `application/json`,
+        'accept': 'application/json',
+        'content-type': 'application/json',
       },
       body: JSON.stringify(data),
     };
 
-    let response = await fetch(`/api/login`, config);
+    let response = await fetch('http://localhost:3002/api/login', config);
 
     // TODO: This logic should be thought about on how we wish to handle !200
     switch (response.status) {
     case 401:
-      alert(`Incorrect Credentials`);
+      alert('Incorrect Credentials');
       break;
     case 204:
-      alert(`User Does Not Exist`);
+      alert('User Does Not Exist');
       break;
     case 200:
-      alert(`Successfully Authenticated`);
-      this.props.history.push(`/tables`);
+      alert('Successfully Authenticated');
+      this.props.history.push('/tables');
       break;
     default:
       alert(`Unkown Error ${response.status}`);

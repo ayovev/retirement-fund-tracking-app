@@ -11,7 +11,7 @@ class TablesContainer extends Component {
   }
 
   componentDidMount() {
-    fetch(`/api/funds`)
+    fetch('http://localhost:3002/api//api/funds')
       .then((response) => {
         return response.json();
       })
