@@ -10,23 +10,18 @@ class TablesContainer extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch(`/api/funds`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((body) => {
-        this.setState({ funds: body });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  async componentDidMount() {
+    let response = await fetch(`/api/funds`);
+    let funds = await response.json();
+    this.setState({
+      funds
+    });
   }
 
   render() {
     return (
-      <div sharestype="App">
-        <p sharestype="Table-header">401k Tracking & Analysis</p>
+      <div className="App">
+        <p className="Table-header">401k Tracking & Analysis</p>
         {
           this.state && this.state.funds && this.state.funds.map((item, id) =>
             <Table class="table-spacing" key={id} tableData={item}></Table>
