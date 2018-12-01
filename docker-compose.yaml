@@ -13,6 +13,8 @@ services:
     links:
       - app-server
     restart: on-failure
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 
   app-server:
     container_name: app-server
@@ -27,6 +29,8 @@ services:
     links:
       - mongo
     restart: on-failure
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 
   mongo:
     container_name: mongo
@@ -38,7 +42,7 @@ services:
     container_name: mongo-seed
     image: mongo:4.0
     volumes:
-      - ./server/src/data:/seed/data
+      - ./app-server/data:/seed/data
     links:
       - mongo
     depends_on:
