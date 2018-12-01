@@ -1,5 +1,6 @@
 `use strict`;
 
+require(`dotenv`).config({ path: `./.env` });
 const path = require(`path`);
 const morgan = require(`morgan`);
 const mongoose = require(`mongoose`);
@@ -8,12 +9,18 @@ const DB_URL = require(`./database`);
 const express = require(`express`);
 const app = express();
 
-// Possibly implement 'express-validator' for form validation
+// TESTING USING MONOGDB NATIVE DRIVER
+const MongoClient = require(`mongodb`).MongoClient;
+
+const testUpdate = require(`./getData`).testUpdate;
 
 // fix for working better with Docker
 const PORT = process.env.PORT || 3001;
 
 mongoose.connect(DB_URL, { useNewUrlParser: true });
+
+// TESTING USING MONOGDB NATIVE DRIVER
+MongoClient.connect(DB_URL, { useNewUrlParser: true });
 
 /* Express Middleware */
 
@@ -47,7 +54,7 @@ app.route(`/api/login`)
     Schemas.Account.findOne({ email: { $eq: request.body.email } })
       .then((results) => {
         if (!results) {
-          response.sendStatus(204);
+          response.sendStatus(404);
         }
         else if (results.password !== request.body.password) {
           response.sendStatus(401);
@@ -56,6 +63,26 @@ app.route(`/api/login`)
           response.send(results);
         }
       });
+  });
+
+// TESTING USING MONOGDB NATIVE DRIVER
+app.route(`/api/testUpdate`)
+  .get((request, response) => {
+    MongoClient.connect(DB_URL, { useNewUrlParser: true }, (error, client) => {
+      const database = client.db();
+      const collection = database.collection(`funds`);
+      collection.find({ fundType: `Multi-Asset` }).toArray()
+        .then((documents) => {
+          documents.forEach((document) => {
+            funds = document.funds;
+            funds.forEach((fund) => {
+              const updateValues = testUpdate(fund.ticker);
+            // fund.returns = testUpdate(fund.ticker);
+            });
+          });
+        });
+      response.sendStatus(200);
+    });
   });
 
 app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
