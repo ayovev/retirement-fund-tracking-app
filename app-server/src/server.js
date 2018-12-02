@@ -88,9 +88,6 @@ app.post('/api/login', (request, response) => {
     });
   });
 
-<<<<<<< HEAD
-  
-=======
 // TESTING USING MONOGDB NATIVE DRIVER
 app.route(`/api/testUpdate`)
   .get((request, response) => {
@@ -110,6 +107,5 @@ app.route(`/api/testUpdate`)
       response.sendStatus(200);
     });
   });
->>>>>>> b2f2d4d3b9221ccd464e36278f26b982862d2f9b
 
 app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
