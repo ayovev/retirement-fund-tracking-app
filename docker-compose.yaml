@@ -43,11 +43,7 @@ services:
     container_name: mongo-seed
     image: mongo:4.0
     volumes:
-<<<<<<< HEAD
-      - ./app-server/src/data:/app-server/src/data
-=======
       - ./app-server/data:/seed/data
->>>>>>> b2f2d4d3b9221ccd464e36278f26b982862d2f9b
     links:
       - mongo
     depends_on:

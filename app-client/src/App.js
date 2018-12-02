@@ -6,11 +6,7 @@ import { AuthenticationConsumer } from "./AuthenticationContext";
 import Routes from "./Routes";
 import "./App.css";
 
-<<<<<<< HEAD
-class App extends Component {
-=======
 export default class App extends Component {
->>>>>>> b2f2d4d3b9221ccd464e36278f26b982862d2f9b
   render() {
     return (
       <AuthenticationConsumer>

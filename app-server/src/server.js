@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-'use strict';
-
-const path = require('path');
-const morgan = require('morgan');
-const mongoose = require('mongoose');
-const Schemas = require('./schemas');
-const DB_URL = require('./database');
-const express = require('express');
-=======
 `use strict`;
 
 require(`dotenv`).config({ path: `./.env` });
@@ -17,7 +7,6 @@ const mongoose = require(`mongoose`);
 const Schemas = require(`./schemas`);
 const DB_URL = require(`./database`);
 const express = require(`express`);
->>>>>>> b2f2d4d3b9221ccd464e36278f26b982862d2f9b
 const app = express();
 const auth = require('./auth/auth');
 

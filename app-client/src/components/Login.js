@@ -46,21 +46,12 @@ export default class Login extends Component {
     case 401:
       alert('Incorrect Credentials');
       break;
-<<<<<<< HEAD
-    case 204:
-      alert('User Does Not Exist');
-      break;
-    case 200:
-      alert('Successfully Authenticated');
-      this.props.history.push('/tables');
-=======
     case 404:
       alert(`User Does Not Exist`);
       break;
     case 200:
       alert(`Successfully Authenticated`);
       this.context.login();
->>>>>>> b2f2d4d3b9221ccd464e36278f26b982862d2f9b
       break;
     default:
       alert(`Unkown Error ${response.status}`);
