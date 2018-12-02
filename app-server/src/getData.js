@@ -1,4 +1,5 @@
-require(`dotenv`).config({ path: `../../.env` });
+`use strict`;
+
 const assert = require(`assert`).strict;
 const rp = require(`request-promise`);
 const moment = require(`moment`);
@@ -10,38 +11,40 @@ const _3_YEARS = `3 Years`;
 const _5_YEARS = `5 Years`;
 const _10_YEARS = `10 Years`;
 
-const options = {
-  url: `https://www.alphavantage.co/query?`,
-  qs: {
-    function: `TIME_SERIES_DAILY_ADJUSTED`,
-    symbol: `AMCPX`,
-    outputsize: `full`,
-    apikey: process.env.ALPHAVANTAGE_API_KEY
-  },
-  resolveWithFullResponse: true
-};
+function testUpdate(ticker) {
+  const options = {
+    url: `https://www.alphavantage.co/query?`,
+    qs: {
+      function: `TIME_SERIES_DAILY_ADJUSTED`,
+      symbol: ticker,
+      outputsize: `full`,
+      apikey: process.env.ALPHAVANTAGE_API_KEY
+    },
+    resolveWithFullResponse: true
+  };
 
-rp(options).then((response) => {
-  const body = JSON.parse(response.body);
-  const bodyHasError = checkBodyForError(body);
-  try {
-    assert.equal(bodyHasError, false);
-  }
-  // TODO [Alex] Come up with better / more descriptive error messaging
-  catch (error) {
-    console.error(`ERROR retrieving data for ${options.qs.symbol}`);
-    return;
-  }
+  rp(options)
+  .then((response) => {
+    const body = JSON.parse(response.body);
+    const bodyHasError = checkBodyForError(body);
+    try {
+      assert.equal(bodyHasError, false);
+    }
+    // TODO [Alex] Come up with better / more descriptive error messaging
+    catch (error) {
+      console.error(`ERROR retrieving data for ${options.qs.symbol}`);
+      // console.error(error);
+      return;
+    }
 
-  const data = body;
+    const data = body;
 
-  console.log(runAll(data));
-})
-
-// TODO [Alex] Come up with better / more descriptive error messaging
+    return runAll(data);
+  })
   .catch((error) => {
-    console.log(`Promise error ${error}`);
+      console.log(`Promise error ${error}`);
   });
+}
 
 function checkBodyForError(body) {
   if (Object.keys(body).includes(`Error Message`)) {
@@ -51,13 +54,13 @@ function checkBodyForError(body) {
 }
 
 function runAll(data) {
-  return {
-    performanceYTD: run(data, _YTD),
-    performance1Year: run(data, _1_YEAR),
-    performance3Years: run(data, _3_YEARS),
-    performance5Years: run(data, _5_YEARS),
-    performance10Years: run(data, _10_YEARS)
-  };
+  return [
+    {"period": 0, "value": run(data, _YTD)},
+    {"period": 1, "value": run(data, _1_YEAR)},
+    {"period": 3, "value": run(data, _3_YEARS)},
+    {"period": 5, "value": run(data, _5_YEARS)},
+    {"period": 10, "value": run(data, _10_YEARS)}
+  ];
 }
 
 function run(data, period) {
@@ -157,4 +160,8 @@ function toWeekday(date) {
     date.subtract(2, `days`);
   }
   return date;
+}
+
+module.exports = {
+  testUpdate: testUpdate
 }

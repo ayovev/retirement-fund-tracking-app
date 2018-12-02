@@ -1,18 +1,18 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { AuthConsumer } from '../AuthContext'
+import { AuthenticationConsumer } from '../AuthenticationContext'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (
-  <AuthConsumer>
-    {({ isAuth }) => (
+  <AuthenticationConsumer>
+    {({ isAuthenticated }) => (
       <Route
         render={props =>
-          isAuth ? <Component {...props} /> : <Redirect to="/" />
+          isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
         }
         {...rest}
       />
     )}
-  </AuthConsumer>
+  </AuthenticationConsumer>
 )
 
 export default ProtectedRoute
