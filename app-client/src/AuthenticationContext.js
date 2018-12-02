@@ -21,7 +21,7 @@ class AuthenticationProvider extends Component {
 
   login = () => {
     sessionStorage.setItem(IS_AUTHENTICATED, true);
-    window.location.assign(`/`);
+    window.location.assign(`/tables`);
   }
 
   logout = () => {

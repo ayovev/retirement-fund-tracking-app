@@ -40,7 +40,7 @@ export default class Login extends Component {
       body: JSON.stringify(data),
     };
 
-    let response = await fetch('http://localhost:3002/api/login', config);
+    let response = await fetch('http://localhost:3001/api/login', config);
 
     switch (response.status) {
     case 401:
@@ -49,9 +49,9 @@ export default class Login extends Component {
     case 404:
       alert(`User Does Not Exist`);
       break;
-    case 200:
-      alert(`Successfully Authenticated`);
-      this.context.login();
+    case 200:      
+      const token = response.headers.get('X-RE-TOKEN');
+      this.context.login(token);
       break;
     default:
       alert(`Unkown Error ${response.status}`);

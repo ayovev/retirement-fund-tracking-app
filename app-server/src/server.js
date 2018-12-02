@@ -17,7 +17,7 @@ const MongoClient = require(`mongodb`).MongoClient;
 const testUpdate = require(`./getData`).testUpdate;
 
 // fix for working better with Docker
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 mongoose.connect(DB_URL, { useNewUrlParser: true });
 
@@ -43,7 +43,7 @@ app.use('/api/funds', function (req, res, next) {
 //Enable CORS from all origins until deployment
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, X-RE-TOKEN");
   next();
 });
 
@@ -76,8 +76,11 @@ app.post('/api/login', (request, response) => {
           response.sendStatus(401);
         }
         else {
-          auth.createToken()
-          response.set('Token', results.email);
+          let token = auth.createToken();
+          // response.writeHead(200, {
+          //   'Set-Cookie': `reToken=${token.toString()}`
+          // });
+          response.set('reToken', token.toString());  
           response.send(results);
         }
       })

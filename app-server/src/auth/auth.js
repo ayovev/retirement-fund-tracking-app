@@ -1,21 +1,22 @@
 `use strict`;
 
 const moment = require('moment');
-const jwt = require.resolve('jwt-simple');
+const jwt = require('jwt-simple');
 const Schemas = require('../schemas');
+const tokenSecret = 'testSecret';
 
 function createToken(email) {
   const token = {
-    exp: moment().add(1, 'minutes').unix(),
+    exp: moment().add(30, 'minutes').unix(),
     iat: moment().unix(),
     email: email
   };
 
-  return jwt.encode(token, 'test');
+  return jwt.encode(token, tokenSecret);
 }
 
 function decodeToken(token, callback) {
-    const tokeInfo = jwt.decode(token, 'test');    
+    const tokeInfo = jwt.decode(token, tokenSecret);    
     if(!moment().unix() > tokeInfo.exp){
         callback(null);
     } else {
