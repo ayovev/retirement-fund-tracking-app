@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./TablesContainer.css";
-import Table from "../components/Table.js";
+import "./TableContainer.css";
+import Table from "../Table/Table.js";
 
-class TablesContainer extends Component {
+export default class TableContainer extends Component {
   constructor() {
     super();
     this.state = {
-      funds: [],
+      funds: []
     };
   }
 
@@ -24,11 +24,9 @@ class TablesContainer extends Component {
         <p className="Table-header">401k Tracking & Analysis</p>
         {
           this.state && this.state.funds && this.state.funds.map((item, id) =>
-            <Table class="table-spacing" key={id} tableData={item}></Table>
-          )}
+            <Table class="table-spacing" key={id} tableData={item}></Table>)
+        }
       </div>
     );
   }
 }
-
-export default TablesContainer;

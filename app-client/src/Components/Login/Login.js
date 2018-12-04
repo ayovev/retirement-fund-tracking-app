@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import md5 from "md5";
-import { AuthenticationContext } from "../AuthenticationContext";
+import { AuthenticationContext } from "../../Contexts/AuthenticationContext/AuthenticationContext";
 import "./Login.css";
 
 export default class Login extends Component {
@@ -10,16 +10,17 @@ export default class Login extends Component {
 
     this.state = {
       email: ``,
-      password: ``,
+      password: ``
     };
   }
-  validateForm = ()  => {
+
+  validateForm = () => {
     return this.state.email.length > 6 && this.state.password.length > 6;
   }
 
   handleChange = (event) => {
     this.setState({
-      [event.target.id]: event.target.value,
+      [event.target.id]: event.target.value
     });
   }
 
@@ -28,16 +29,16 @@ export default class Login extends Component {
 
     const data = {
       email: this.state.email,
-      password: md5(this.state.password),
+      password: md5(this.state.password)
     };
 
     const config = {
       method: `POST`,
       headers: {
         'accept': `application/json`,
-        'content-type': `application/json`,
+        'content-type': `application/json`
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     };
 
     let response = await fetch(`/api/login`, config);

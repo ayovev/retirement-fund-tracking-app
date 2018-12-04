@@ -24,26 +24,26 @@ function testUpdate(ticker) {
   };
 
   rp(options)
-  .then((response) => {
-    const body = JSON.parse(response.body);
-    const bodyHasError = checkBodyForError(body);
-    try {
-      assert.equal(bodyHasError, false);
-    }
-    // TODO [Alex] Come up with better / more descriptive error messaging
-    catch (error) {
-      console.error(`ERROR retrieving data for ${options.qs.symbol}`);
-      // console.error(error);
-      return;
-    }
+    .then((response) => {
+      const body = JSON.parse(response.body);
+      const bodyHasError = checkBodyForError(body);
+      try {
+        assert.equal(bodyHasError, false);
+      }
+      // TODO [Alex] Come up with better / more descriptive error messaging
+      catch (error) {
+        console.error(`ERROR retrieving data for ${options.qs.symbol}`);
+        // console.error(error);
+        return;
+      }
 
-    const data = body;
+      const data = body;
 
-    return runAll(data);
-  })
-  .catch((error) => {
+      return runAll(data);
+    })
+    .catch((error) => {
       console.log(`Promise error ${error}`);
-  });
+    });
 }
 
 function checkBodyForError(body) {
@@ -55,11 +55,11 @@ function checkBodyForError(body) {
 
 function runAll(data) {
   return [
-    {"period": 0, "value": run(data, _YTD)},
-    {"period": 1, "value": run(data, _1_YEAR)},
-    {"period": 3, "value": run(data, _3_YEARS)},
-    {"period": 5, "value": run(data, _5_YEARS)},
-    {"period": 10, "value": run(data, _10_YEARS)}
+    { "period": 0, "value": run(data, _YTD) },
+    { "period": 1, "value": run(data, _1_YEAR) },
+    { "period": 3, "value": run(data, _3_YEARS) },
+    { "period": 5, "value": run(data, _5_YEARS) },
+    { "period": 10, "value": run(data, _10_YEARS) }
   ];
 }
 
@@ -164,4 +164,4 @@ function toWeekday(date) {
 
 module.exports = {
   testUpdate: testUpdate
-}
+};

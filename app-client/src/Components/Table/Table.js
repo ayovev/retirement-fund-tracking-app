@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import "./Table.css";
 
-class Table extends Component {
+export default class Table extends Component {
   render() {
     const getReturn = (cell, row, index) => {
       let returnItem = cell.find((item) => item.period === index);
@@ -26,5 +26,3 @@ class Table extends Component {
     );
   }
 }
-
-export default Table;

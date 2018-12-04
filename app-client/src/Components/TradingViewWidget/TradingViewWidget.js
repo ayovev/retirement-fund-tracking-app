@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 import styles from './TradingViewWidget.css';
 
-class TradingViewWidget extends Component {
+export default class TradingViewWidget extends Component {
   render() {
     return (
       <div className={styles.parent}>
-        <div className={[styles.container, "tradingview-widget-container"]}>
-          <div className={[styles.container, "tradingview-widget-container__widget"]}></div>
+        <div className={[styles.container, `tradingview-widget-container`]}>
+          <div className={[styles.container, `tradingview-widget-container__widget`]}></div>
           <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
             {JSON.stringify({
               "showChart": true,
@@ -28,83 +28,83 @@ class TradingViewWidget extends Component {
                   "symbols": [
                     {
                       "s": `SP:SPX`,
-                      "d": `S&P 500`,
+                      "d": `S&P 500`
                     },
                     {
                       "s": `DJ:DJI`,
-                      "d": `DOW 30`,
+                      "d": `DOW 30`
                     },
                     {
                       "s": `NASDAQ:NDX`,
-                      "d": `NASDAQ 100`,
+                      "d": `NASDAQ 100`
                     },
                     {
                       "s": `RUSSELL:RUT`,
-                      "d": `RUSSELL 2000`,
+                      "d": `RUSSELL 2000`
                     },
                     {
                       "s": `INDEX:DTY0`,
-                      "d": `DOW TRANSPORTS`,
+                      "d": `DOW TRANSPORTS`
                     },
                     {
                       "s": `CBOE:VIX`,
-                      "d": `VOLATILITY INDEX`,
+                      "d": `VOLATILITY INDEX`
                     },
                     {
                       "s": `INDEX:DXY`,
-                      "d": `US DOLLAR CURRENCY INDEX`,
-                    },
+                      "d": `US DOLLAR CURRENCY INDEX`
+                    }
                   ],
-                  "originalTitle": `Indices`,
+                  "originalTitle": `Indices`
                 },
                 {
                   "title": `Commodities`,
                   "symbols": [
                     {
                       "s": `COMEX:GC1!`,
-                      "d": `Gold`,
+                      "d": `Gold`
                     },
                     {
                       "s": `NYMEX:CL1!`,
-                      "d": `Crude Oil`,
+                      "d": `Crude Oil`
                     },
                     {
                       "s": `NYMEX:NG1!`,
-                      "d": `Natural Gas`,
-                    },
+                      "d": `Natural Gas`
+                    }
                   ],
-                  "originalTitle": `Commodities`,
+                  "originalTitle": `Commodities`
                 },
                 {
                   "title": `Bonds`,
                   "symbols": [],
-                  "originalTitle": `Bonds`,
+                  "originalTitle": `Bonds`
                 },
                 {
                   "title": `Forex`,
                   "symbols": [
                     {
-                      "s": `FX:EURUSD`,
+                      "s": `FX:EURUSD`
                     },
                     {
-                      "s": `FX:GBPUSD`,
+                      "s": `FX:GBPUSD`
                     },
                     {
-                      "s": `FX:USDJPY`,
+                      "s": `FX:USDJPY`
                     },
                     {
-                      "s": `FX:USDCHF`,
+                      "s": `FX:USDCHF`
                     },
                     {
-                      "s": `FX:AUDUSD`,
+                      "s": `FX:AUDUSD`
                     },
                     {
-                      "s": `FX:USDCAD`,
-                    },
+                      "s": `FX:USDCAD`
+                    }
                   ],
-                  "originalTitle": `Forex`,
-                },
-              ],
+                  "originalTitle": `Forex`
+                }
+              ]
             })}
           </script>
         </div>
@@ -112,5 +112,3 @@ class TradingViewWidget extends Component {
     );
   }
 }
-
-export default TradingViewWidget;

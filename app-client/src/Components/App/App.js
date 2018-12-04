@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { AuthenticationConsumer } from "./AuthenticationContext";
-import Routes from "./Routes";
+import { AuthenticationConsumer } from "../../Contexts/AuthenticationContext/AuthenticationContext";
+import Routes from "../Routes/Routes";
 import "./App.css";
 
 export default class App extends Component {
