@@ -32,7 +32,15 @@ function ensureAuthentication(request, response, next) {
     }
   
     //Pull token from header
+    //Expected Auth header format: 'Bearer token'
     let header = request.headers.authorization.split(' ');
+
+    if(header.length != 2){
+        return response.status(401).json({
+            status: 'Unauthorized. Failed to decode token'
+        });
+    }
+
     let token = header[1];
 
     decodeToken(token).then(tokenInfo => {

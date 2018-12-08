@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import md5 from "md5";
 import { AuthenticationContext } from "../AuthenticationContext";
+import * as cookies from "js-cookie";
 import "./Login.css";
 
 export default class Login extends Component {
@@ -31,32 +32,35 @@ export default class Login extends Component {
       password: md5(this.state.password),
     };
 
-    const config = {
+    const request = {
       method: 'POST',
+      mode: 'cors',
       headers: {
-        'accept': 'application/json',
         'content-type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify(data),
     };
 
-    let response = await fetch('http://localhost:3001/api/login', config);
-
-    switch (response.status) {
-    case 401:
-      alert('Incorrect Credentials');
-      break;
-    case 404:
-      alert(`User Does Not Exist`);
-      break;
-    case 200:      
-      const token = response.headers.get('X-RE-TOKEN');
-      this.context.login(token);
-      break;
-    default:
-      alert(`Unkown Error ${response.status}`);
-      break;
-    }
+    fetch('http://localhost:3001/api/login', request)
+    .then(response => {
+      switch (response.status) {
+        case 401:
+          alert('Incorrect Credentials');
+          break;
+        case 404:
+          alert(`User Does Not Exist`);
+          break;
+        case 200:      
+          const token = cookies.get("X-RE-TOKEN");
+          console.log(token);
+          this.context.login();
+          break;
+        default:
+          alert(`Unkown Error ${response.status}`);
+          break;
+        }
+    });
   }
 
   render() {

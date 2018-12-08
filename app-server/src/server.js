@@ -35,17 +35,19 @@ app.use(morgan('dev'));
 // Serve any static files
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+//TODO [Justin] add origins to be allowed post deployment
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, X-RE-TOKEN");
+  res.header("Access-Control-Allow-Credentials", "true")
+  next();
+});
+
 // Validate auth token when retrieving funds
 app.use('/api/funds', function (req, res, next) {
   auth.ensureAuthentication(req, res, next);
 })
 
-//Enable CORS from all origins until deployment
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, X-RE-TOKEN");
-  next();
-});
 
 /* Route Handlers */
 
@@ -77,10 +79,8 @@ app.post('/api/login', (request, response) => {
         }
         else {
           let token = auth.createToken();
-          // response.writeHead(200, {
-          //   'Set-Cookie': `reToken=${token.toString()}`
-          // });
-          response.set('reToken', token.toString());  
+
+          response.cookie('X-RE-TOKEN',token.toString())
           response.send(results);
         }
       })
