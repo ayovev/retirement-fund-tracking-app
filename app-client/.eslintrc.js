@@ -41,6 +41,8 @@ module.exports = {
       "react/display-name": ["off"],
 
       // fix at some point
-      "react/prop-types": ["off"]
+      "react/prop-types": ["off"],
+
+      // "react/jsx-key": ["off"]
     }
 };
