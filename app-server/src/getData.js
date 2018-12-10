@@ -11,39 +11,36 @@ const _3_YEARS = `3 Years`;
 const _5_YEARS = `5 Years`;
 const _10_YEARS = `10 Years`;
 
-function testUpdate(ticker) {
+async function testUpdate(ticker) {
   const options = {
     url: `https://www.alphavantage.co/query?`,
     qs: {
       function: `TIME_SERIES_DAILY_ADJUSTED`,
-      symbol: ticker,
+      symbol: ticker.toUpperCase(),
       outputsize: `full`,
       apikey: process.env.ALPHAVANTAGE_API_KEY
     },
     resolveWithFullResponse: true
   };
 
-  rp(options)
-    .then((response) => {
-      const body = JSON.parse(response.body);
-      const bodyHasError = checkBodyForError(body);
-      try {
-        assert.equal(bodyHasError, false);
-      }
-      // TODO [Alex] Come up with better / more descriptive error messaging
-      catch (error) {
-        console.error(`ERROR retrieving data for ${options.qs.symbol}`);
-        // console.error(error);
-        return;
-      }
+  const response = await rp(options);
 
-      const data = body;
+  const body = await JSON.parse(response.body);
+  const bodyHasError = checkBodyForError(body);
 
-      return runAll(data);
-    })
-    .catch((error) => {
-      console.log(`Promise error ${error}`);
-    });
+  try {
+    assert.equal(bodyHasError, false);
+  }
+  catch (error) {
+    console.error(`ERROR retrieving data for ${options.qs.symbol}`);
+    console.error(error);
+
+    return;
+  }
+
+  const data = body;
+
+  return runAll(data);
 }
 
 function checkBodyForError(body) {
@@ -78,7 +75,7 @@ function run(data, period) {
 }
 
 function configureDateRange(period) {
-  const to = moment().subtract(1, `day`);
+  const to = moment().subtract(2, `days`);
   const from = moment();
   setPeriod(from, period);
 
