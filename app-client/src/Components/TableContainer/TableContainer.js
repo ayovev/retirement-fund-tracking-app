@@ -3,8 +3,8 @@ import "./TableContainer.css";
 import Table from "../Table/Table.js";
 
 export default class TableContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       funds: []
     };
@@ -21,10 +21,16 @@ export default class TableContainer extends Component {
   render() {
     return (
       <div className="App">
-        <p className="Table-header">401k Tracking & Analysis</p>
         {
-          this.state && this.state.funds && this.state.funds.map((item, id) =>
-            <Table class="table-spacing" key={id} tableData={item}></Table>)
+          this.state.funds.map((item, id) => {
+            return (
+              <React.Fragment key={id}>
+                <br/>
+                <h4 style={{ fontFamily: `Open Sans` }}><b>{item.fundType}</b></h4>
+                <Table class="table-spacing" key={id} tableData={item}/>
+              </React.Fragment>
+            );
+          })
         }
       </div>
     );

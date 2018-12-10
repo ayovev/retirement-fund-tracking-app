@@ -14,6 +14,7 @@ export default class Login extends Component {
     };
   }
 
+  // might need to have more validation here but it's a start
   validateForm = () => {
     return this.state.email.length > 6 && this.state.password.length > 6;
   }
@@ -43,20 +44,21 @@ export default class Login extends Component {
 
     let response = await fetch(`/api/login`, config);
 
+    /* eslint indent: ["error", 2, { "SwitchCase": 1 }]*/
     switch (response.status) {
-    case 401:
-      alert(`Incorrect Credentials`);
-      break;
-    case 404:
-      alert(`User Does Not Exist`);
-      break;
-    case 200:
-      alert(`Successfully Authenticated`);
-      this.context.login();
-      break;
-    default:
-      alert(`Unkown Error ${response.status}`);
-      break;
+      case 401:
+        alert(`Incorrect Credentials`);
+        break;
+      case 404:
+        alert(`User Does Not Exist`);
+        break;
+      case 200:
+        alert(`Successfully Authenticated`);
+        this.context.login();
+        break;
+      default:
+        alert(`Unknown Error ${response.status}`);
+        break;
     }
   }
 
