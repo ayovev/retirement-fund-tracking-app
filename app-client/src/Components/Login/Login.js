@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import md5 from "md5";
-<<<<<<< HEAD:app-client/src/components/Login.js
 import { AuthenticationContext } from "../AuthenticationContext";
 import * as cookies from "js-cookie";
-=======
-import { AuthenticationContext } from "../../Contexts/AuthenticationContext/AuthenticationContext";
->>>>>>> 5e67a38bd0756d6963d6dbda0b08b96631a41c52:app-client/src/Components/Login/Login.js
 import "./Login.css";
 
 export default class Login extends Component {
@@ -14,13 +10,8 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-<<<<<<< HEAD:app-client/src/components/Login.js
       email: '',
       password: '',
-=======
-      email: ``,
-      password: ``
->>>>>>> 5e67a38bd0756d6963d6dbda0b08b96631a41c52:app-client/src/Components/Login/Login.js
     };
   }
 
