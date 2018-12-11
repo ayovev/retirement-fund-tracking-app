@@ -8,16 +8,10 @@
     "bugs": "https://github.com/ayovev/retirement-tracking-app/issues"
   },
   "private": true,
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^5.2.0"
-  },
   "scripts": {
     "lint:app-client": "cd app-client && npm run lint && cd ..",
     "lint:app-server": "cd app-server && npm run lint && cd ..",
-    "lint": "npm run lint:app-client && npm run lint:app-server",
-    "start": "docker-compose up",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm run lint:app-client && npm run lint:app-server"
   },
   "contributors": [
     "Justin Peterson",

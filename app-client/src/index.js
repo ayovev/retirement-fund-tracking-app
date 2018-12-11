@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthenticationProvider } from './AuthenticationContext';
+import registerServiceWorker from "./registerServiceWorker";
+import { AuthenticationProvider } from './Contexts/AuthenticationContext/AuthenticationContext';
+import App from "./Components/App/App";
+import "./index.css";
 
 ReactDOM.render(
   <AuthenticationProvider>

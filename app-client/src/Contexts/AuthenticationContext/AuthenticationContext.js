@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const IS_AUTHENTICATED = "isAuthenticated";
+const IS_AUTHENTICATED = `isAuthenticated`;
 
 const AuthenticationContext = React.createContext();
 const AuthenticationConsumer = AuthenticationContext.Consumer;
@@ -12,10 +12,10 @@ class AuthenticationProvider extends Component {
     // should we use localStorage or sessionStorage for persisting / maintaining this data...or something else like JWT?
 
     // TODO: this needs to be broken down into a sequence of more robust and thorough checks (possibly it's own function)
-    const isAuthenticated = sessionStorage.getItem(IS_AUTHENTICATED) !== null ? sessionStorage.getItem(IS_AUTHENTICATED).toLowerCase() === "true" : false;
+    const isAuthenticated = sessionStorage.getItem(IS_AUTHENTICATED) !== null ? sessionStorage.getItem(IS_AUTHENTICATED).toLowerCase() === `true` : false;
 
     this.state = {
-      isAuthenticated,
+      isAuthenticated
     };
   }
 
@@ -30,7 +30,7 @@ class AuthenticationProvider extends Component {
   }
 
   render() {
-    return(
+    return (
       <AuthenticationContext.Provider
         value={{
           isAuthenticated: this.state.isAuthenticated,
@@ -40,7 +40,7 @@ class AuthenticationProvider extends Component {
       >
         {this.props.children}
       </AuthenticationContext.Provider>
-    )
+    );
   }
 }
 

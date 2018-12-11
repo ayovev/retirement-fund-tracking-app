@@ -1,28 +1,24 @@
 `use strict`;
 
 require(`dotenv`).config({ path: `./.env` });
+
 const path = require(`path`);
+const moment = require(`moment`);
 const morgan = require(`morgan`);
-const mongoose = require(`mongoose`);
-const Schemas = require(`./schemas`);
-const DB_URL = require(`./database`);
 const express = require(`express`);
 const app = express();
 const auth = require('./auth/auth');
 
 
-// TESTING USING MONOGDB NATIVE DRIVER
-const MongoClient = require(`mongodb`).MongoClient;
+const DATABASE_URI = require(`./database`);
+
+require(`mongodb`).MongoClient.connect(DATABASE_URI, { useNewUrlParser: true, poolSize: 10 }, (error, client) => {
+  app.locals.MongoClient = client;
+});
 
 const testUpdate = require(`./getData`).testUpdate;
 
-// fix for working better with Docker
 const PORT = process.env.PORT || 3001;
-
-mongoose.connect(DB_URL, { useNewUrlParser: true });
-
-// TESTING USING MONOGDB NATIVE DRIVER
-MongoClient.connect(DB_URL, { useNewUrlParser: true });
 
 /* Express Middleware */
 
@@ -33,7 +29,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Serve any static files
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, `app-client/build`)));
 
 //TODO [Justin] add origins to be allowed post deployment
 app.use(function(req, res, next) {
@@ -48,66 +44,88 @@ app.use('/api/funds', function (req, res, next) {
   auth.ensureAuthentication(req, res, next);
 })
 
-
 /* Route Handlers */
 
 app.get('/', (req, res) => {
   res.send('Retirement API\n');
 });
 
-// Get all funds associated with an account
-app.get('/api/funds', (request, response) => {
-    Schemas.Fund.find()
-      .then((results) => {
-        response.send(results);
-      })
-      .catch((error) => {
-        console.error('ERROR CAUGHT');
-        console.error(error);
-      });
-  });
+
 
 // Authenticate user login request
-app.post('/api/login', (request, response) => {
-    Schemas.Account.findOne({ email: { $eq: request.body.email } })
-      .then((results) => {
-        if (!results) {
-          response.sendStatus(404);
-        }
-        else if (results.password !== request.body.password) {
-          response.sendStatus(401);
-        }
-        else {
-          let token = auth.createToken();
+app.route(`/api/login`)
+.post(async (request, response) => {
+  const database = client.db();
 
-          response.cookie('X-RE-TOKEN',token.toString())
-          response.send(results);
-        }
-      })
-      .catch((err) => {
-        response.status(500).json({
-        status: `Error occurred during login process: ${err}`
-        });
-    });
+  const collection = database.collection(`accounts`);
+
+  const result = await collection.find({ email: { $eq: request.body.email } }).toArray();
+  const user = result[0];
+
+  if (!user) {
+    response.sendStatus(404);
+  }
+  else if (user.password !== request.body.password) {
+    response.sendStatus(401);
+  }
+  else {
+    
+    let token = auth.createToken();
+
+    response.cookie('X-RE-TOKEN',token.toString())
+    response.send(results);
+  }
+});
+app.route(`/api/funds`)
+  .get(async (request, response) => {
+    const database = client.db();
+
+    const collection = database.collection(`funds`);
+
+    const result = await collection.find().toArray();
+
+    response.send(result);
   });
 
-// TESTING USING MONOGDB NATIVE DRIVER
+
+// refactor this and make it more clear
 app.route(`/api/testUpdate`)
-  .get((request, response) => {
-    MongoClient.connect(DB_URL, { useNewUrlParser: true }, (error, client) => {
+  .get(async (request, response) => {
+    try {
       const database = client.db();
+
       const collection = database.collection(`funds`);
-      collection.find({ fundType: `Multi-Asset` }).toArray()
-        .then((documents) => {
-          documents.forEach((document) => {
-            funds = document.funds;
-            funds.forEach((fund) => {
-              const updateValues = testUpdate(fund.ticker);
-            // fund.returns = testUpdate(fund.ticker);
-            });
-          });
-        });
+
+      let result = await collection.find({ fundType: `Multi-Asset` }).toArray();
+      result = result[0];
+
+      const funds = result.funds;
+
+      for (const fund of funds) {
+        fund.returns = await testUpdate(fund.ticker);
+      }
+
+      result.funds = funds;
+
+      await collection.replaceOne({ fundType: `Multi-Asset` }, result);
+
       response.sendStatus(200);
+    }
+    catch (error) {
+      console.error(`ERROR: Something went wrong while trying to update funds`);
+      console.error(error);
+    }
+  });
+
+// refactor status endpoint
+app.route(`/api/status`)
+  .get(async (request, response) => {
+    // include database status in this status check response
+
+    response.send({
+      datetime: moment().utcOffset(-7).format(`YYYY-MM-DD HH:mm:ss`),
+      service: `app-server`,
+      status: 200
     });
   });
 
