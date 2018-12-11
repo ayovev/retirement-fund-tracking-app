@@ -7,8 +7,7 @@ const moment = require(`moment`);
 const morgan = require(`morgan`);
 const express = require(`express`);
 const app = express();
-const auth = require('./auth/auth');
-
+const auth = require(`./auth`);
 
 const DATABASE_URI = require(`./database`);
 
@@ -26,58 +25,55 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 
 // Log requested resource and HTTP status code
-app.use(morgan('dev'));
+app.use(morgan(`dev`));
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, `app-client/build`)));
 
-//TODO [Justin] add origins to be allowed post deployment
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, X-RE-TOKEN");
-  res.header("Access-Control-Allow-Credentials", "true")
+// TODO [Justin] add origins to be allowed post deployment
+app.use((request, response, next) => {
+  response.header(`Access-Control-Allow-Origin`, `http://localhost:3000`);
+  response.header(`Access-Control-Allow-Headers`, `Origin, X-Requested-With, Content-Type, Accept, X-RE-TOKEN`);
+  response.header(`Access-Control-Allow-Credentials`, `true`);
   next();
 });
 
 // Validate auth token when retrieving funds
-app.use('/api/funds', function (req, res, next) {
-  auth.ensureAuthentication(req, res, next);
-})
+app.use(`/api/funds`, function(request, response, next) {
+  auth.ensureAuthentication(request, response, next);
+});
 
 /* Route Handlers */
 
-app.get('/', (req, res) => {
-  res.send('Retirement API\n');
-});
-
-
-
-// Authenticate user login request
 app.route(`/api/login`)
-.post(async (request, response) => {
-  const database = client.db();
+  .post(async (request, response) => {
+    const client = request.app.locals.MongoClient;
 
-  const collection = database.collection(`accounts`);
+    const database = client.db();
 
-  const result = await collection.find({ email: { $eq: request.body.email } }).toArray();
-  const user = result[0];
+    const collection = database.collection(`accounts`);
 
-  if (!user) {
-    response.sendStatus(404);
-  }
-  else if (user.password !== request.body.password) {
-    response.sendStatus(401);
-  }
-  else {
-    
-    let token = auth.createToken();
+    const result = await collection.find({ email: { $eq: request.body.email } }).toArray();
+    const user = result[0];
 
-    response.cookie('X-RE-TOKEN',token.toString())
-    response.send(results);
-  }
-});
+    if (!user) {
+      response.sendStatus(404);
+    }
+    else if (user.password !== request.body.password) {
+      response.sendStatus(401);
+    }
+    else {
+      const token = auth.createToken();
+
+      response.cookie(`X-RE-TOKEN`, token.toString());
+      response.send(result);
+    }
+  });
+
 app.route(`/api/funds`)
   .get(async (request, response) => {
+    const client = request.app.locals.MongoClient;
+
     const database = client.db();
 
     const collection = database.collection(`funds`);
@@ -92,6 +88,8 @@ app.route(`/api/funds`)
 app.route(`/api/testUpdate`)
   .get(async (request, response) => {
     try {
+      const client = request.app.locals.MongoClient;
+
       const database = client.db();
 
       const collection = database.collection(`funds`);

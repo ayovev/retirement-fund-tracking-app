@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import md5 from "md5";
-import { AuthenticationContext } from "../AuthenticationContext";
+import { AuthenticationContext } from "../../Contexts/AuthenticationContext/AuthenticationContext";
 import * as cookies from "js-cookie";
 import "./Login.css";
 
@@ -10,8 +10,8 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      email: ``,
+      password: ``
     };
   }
 
@@ -34,40 +34,14 @@ export default class Login extends Component {
       password: md5(this.state.password)
     };
 
-    const request = {
-      method: 'POST',
-      mode: 'cors',
+    const config = {
+      method: `POST`,
+      mode: `cors`,
       headers: {
-<<<<<<< HEAD:app-client/src/components/Login.js
-        'content-type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify(data),
-    };
-
-    fetch('http://localhost:3001/api/login', request)
-    .then(response => {
-      switch (response.status) {
-        case 401:
-          alert('Incorrect Credentials');
-          break;
-        case 404:
-          alert(`User Does Not Exist`);
-          break;
-        case 200:      
-          const token = cookies.get("X-RE-TOKEN");
-          console.log(token);
-          this.context.login();
-          break;
-        default:
-          alert(`Unkown Error ${response.status}`);
-          break;
-        }
-    });
-=======
         'accept': `application/json`,
         'content-type': `application/json`
       },
+      credentials: `include`,
       body: JSON.stringify(data)
     };
 
@@ -82,14 +56,14 @@ export default class Login extends Component {
         alert(`User Does Not Exist`);
         break;
       case 200:
-        alert(`Successfully Authenticated`);
+        const token = cookies.get(`X-RE-TOKEN`);
+        console.log(token);
         this.context.login();
         break;
       default:
-        alert(`Unknown Error ${response.status}`);
+        alert(`Unkown Error ${response.status}`);
         break;
     }
->>>>>>> 5e67a38bd0756d6963d6dbda0b08b96631a41c52:app-client/src/Components/Login/Login.js
   }
 
   render() {
