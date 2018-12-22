@@ -1,10 +1,12 @@
 `use strict`;
 
-require(`dotenv`).config({ path: `./.env` });
+require(`dotenv`).config({ path: `../.env` });
 
 const path = require(`path`);
 const moment = require(`moment`);
 const morgan = require(`morgan`);
+const jwt = require(`jsonwebtoken`);
+const cookieParser = require(`cookie-parser`);
 const express = require(`express`);
 const app = express();
 
@@ -29,11 +31,43 @@ app.use(morgan(`dev`));
 // Serve any static files
 app.use(express.static(path.join(__dirname, `app-client/build`)));
 
+// Parse request cookies
+app.use(cookieParser());
+
 /* Route Handlers */
 
-// Get all funds associated with an account
+app.route(`/api/login`)
+  .post(async (request, response) => {
+    const client = request.app.locals.MongoClient;
+
+    const database = client.db();
+
+    const collection = database.collection(`accounts`);
+
+    const user = await collection.findOne({ email: { $eq: request.body.email } });
+
+    if (!user) {
+      response.sendStatus(404);
+    }
+    else if (user.password !== request.body.password) {
+      response.sendStatus(401);
+    }
+    else {
+      response.clearCookie(`rtaToken`);
+      const token = await jwt.sign({ data: user._id }, process.env.TOKEN_SECRET, { expiresIn: `1h` });
+
+      response.cookie(`rtaToken`, token.toString(), { httpOnly: true });
+      response.sendStatus(200);
+    }
+  });
+
 app.route(`/api/funds`)
   .get(async (request, response) => {
+    // const token = request.cookies[`rtaToken`];
+    // const email = await jwt.verify(token, process.env.TOKEN_SECRET);
+
+    const client = request.app.locals.MongoClient;
+
     const database = client.db();
 
     const collection = database.collection(`funds`);
@@ -43,37 +77,17 @@ app.route(`/api/funds`)
     response.send(result);
   });
 
-// Authenticate user login request
-app.route(`/api/login`)
-  .post(async (request, response) => {
-    const database = client.db();
-
-    const collection = database.collection(`accounts`);
-
-    const result = await collection.find({ email: { $eq: request.body.email } }).toArray();
-    const user = result[0];
-
-    if (!user) {
-      response.sendStatus(404);
-    }
-    else if (user.password !== request.body.password) {
-      response.sendStatus(401);
-    }
-    else {
-      response.sendStatus(200);
-    }
-  });
-
 // refactor this and make it more clear
 app.route(`/api/testUpdate`)
   .get(async (request, response) => {
     try {
+      const client = request.app.locals.MongoClient;
+
       const database = client.db();
 
       const collection = database.collection(`funds`);
 
-      let result = await collection.find({ fundType: `Multi-Asset` }).toArray();
-      result = result[0];
+      const result = await collection.findOne({ fundType: `Multi-Asset` });
 
       const funds = result.funds;
 

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./TableContainer.css";
 import Table from "../Table/Table.js";
 
 export default class TableContainer extends Component {
@@ -20,19 +19,19 @@ export default class TableContainer extends Component {
 
   render() {
     return (
-      <div className="App">
+      <React.Fragment>
         {
           this.state.funds.map((item, id) => {
             return (
               <React.Fragment key={id}>
                 <br/>
-                <h4 style={{ fontFamily: `Open Sans` }}><b>{item.fundType}</b></h4>
-                <Table class="table-spacing" key={id} tableData={item}/>
+                <p style={{ fontFamily: `Open Sans`, width: `auto` }}><b>{item.fundType}</b></p>
+                <Table key={id} tableData={item}/>
               </React.Fragment>
             );
           })
         }
-      </div>
+      </React.Fragment>
     );
   }
 }

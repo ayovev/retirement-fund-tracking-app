@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+// posibly swap out md5 for crypto package later on for more robust encryption
 import md5 from "md5";
 import { AuthenticationContext } from "../../Contexts/AuthenticationContext/AuthenticationContext";
 import "./Login.css";
@@ -35,10 +36,12 @@ export default class Login extends Component {
 
     const config = {
       method: `POST`,
+      mode: `cors`,
       headers: {
         'accept': `application/json`,
         'content-type': `application/json`
       },
+      credentials: `include`,
       body: JSON.stringify(data)
     };
 
@@ -53,11 +56,10 @@ export default class Login extends Component {
         alert(`User Does Not Exist`);
         break;
       case 200:
-        alert(`Successfully Authenticated`);
         this.context.login();
         break;
       default:
-        alert(`Unknown Error ${response.status}`);
+        alert(`Unkown Error ${response.status}`);
         break;
     }
   }
