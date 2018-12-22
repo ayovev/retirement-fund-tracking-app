@@ -1,13 +1,14 @@
 `use strict`;
 
-require(`dotenv`).config({ path: `./.env` });
+require(`dotenv`).config({ path: `../.env` });
 
 const path = require(`path`);
 const moment = require(`moment`);
 const morgan = require(`morgan`);
+const jwt = require(`jsonwebtoken`);
+const cookieParser = require(`cookie-parser`);
 const express = require(`express`);
 const app = express();
-const auth = require(`./auth`);
 
 const DATABASE_URI = require(`./database`);
 
@@ -30,18 +31,8 @@ app.use(morgan(`dev`));
 // Serve any static files
 app.use(express.static(path.join(__dirname, `app-client/build`)));
 
-// TODO [Justin] add origins to be allowed post deployment
-app.use((request, response, next) => {
-  response.header(`Access-Control-Allow-Origin`, `http://localhost:3000`);
-  response.header(`Access-Control-Allow-Headers`, `Origin, X-Requested-With, Content-Type, Accept, X-RE-TOKEN`);
-  response.header(`Access-Control-Allow-Credentials`, `true`);
-  next();
-});
-
-// Validate auth token when retrieving funds
-app.use(`/api/funds`, function(request, response, next) {
-  auth.ensureAuthentication(request, response, next);
-});
+// Parse request cookies
+app.use(cookieParser());
 
 /* Route Handlers */
 
@@ -53,8 +44,7 @@ app.route(`/api/login`)
 
     const collection = database.collection(`accounts`);
 
-    const result = await collection.find({ email: { $eq: request.body.email } }).toArray();
-    const user = result[0];
+    const user = await collection.findOne({ email: { $eq: request.body.email } });
 
     if (!user) {
       response.sendStatus(404);
@@ -63,15 +53,19 @@ app.route(`/api/login`)
       response.sendStatus(401);
     }
     else {
-      const token = auth.createToken();
+      response.clearCookie(`rtaToken`);
+      const token = await jwt.sign({ data: user._id }, process.env.TOKEN_SECRET, { expiresIn: `1h` });
 
-      response.cookie(`X-RE-TOKEN`, token.toString());
-      response.send(result);
+      response.cookie(`rtaToken`, token.toString(), { httpOnly: true });
+      response.sendStatus(200);
     }
   });
 
 app.route(`/api/funds`)
   .get(async (request, response) => {
+    // const token = request.cookies[`rtaToken`];
+    // const email = await jwt.verify(token, process.env.TOKEN_SECRET);
+
     const client = request.app.locals.MongoClient;
 
     const database = client.db();
@@ -83,7 +77,6 @@ app.route(`/api/funds`)
     response.send(result);
   });
 
-
 // refactor this and make it more clear
 app.route(`/api/testUpdate`)
   .get(async (request, response) => {
@@ -94,8 +87,7 @@ app.route(`/api/testUpdate`)
 
       const collection = database.collection(`funds`);
 
-      let result = await collection.find({ fundType: `Multi-Asset` }).toArray();
-      result = result[0];
+      const result = await collection.findOne({ fundType: `Multi-Asset` });
 
       const funds = result.funds;
 
