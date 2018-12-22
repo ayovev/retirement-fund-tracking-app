@@ -1,5 +1,3 @@
-require(`dotenv`).config({ path: `../../.env` });
-
 // possibly move these to .env file
 const PREFIX = `mongodb://`;
 const HOST = `mongo`;

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+// posibly swap out md5 for crypto package later on for more robust encryption
 import md5 from "md5";
 import { AuthenticationContext } from "../../Contexts/AuthenticationContext/AuthenticationContext";
-import * as cookies from "js-cookie";
 import "./Login.css";
 
 export default class Login extends Component {
@@ -56,8 +56,6 @@ export default class Login extends Component {
         alert(`User Does Not Exist`);
         break;
       case 200:
-        const token = cookies.get(`X-RE-TOKEN`);
-        console.log(token);
         this.context.login();
         break;
       default:
