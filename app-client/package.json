@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "js-cookie": "^2.1.4",
     "md5": "^2.2.1",
     "react": "^16.6.0",
     "react-bootstrap": "^0.32.1",

@@ -9,6 +9,9 @@
   },
   "private": true,
   "scripts": {
+    "install": "npm run install:app-client && npm run install:app-server",
+    "install:app-client": "cd app-client && npm install && cd ..",
+    "install:app-server": "cd app-server && npm install && cd ..",
     "lint:app-client": "cd app-client && npm run lint && cd ..",
     "lint:app-server": "cd app-server && npm run lint && cd ..",
     "lint": "npm run lint:app-client && npm run lint:app-server"
