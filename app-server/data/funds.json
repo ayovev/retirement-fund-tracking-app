@@ -1,652 +1,299 @@
 [
   {
-    "id": 1,
-    "fundType": "Multi-Asset",
-    "funds": [
+    "ticker": "VTIVX",
+    "name": "Vanguard Target Retirement 2045",
+    "type": "Multi-Asset",
+    "risk": "LM",
+    "return": "MH",
+    "expenseRatio": 0.15,
+    "returns": [
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 0,
+        "value": -8.49
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 1,
+        "value": -8.73
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 3,
+        "value": 6.35
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 5,
+        "value": 5.09
+      },
+      {
+        "period": 10,
+        "value": 10.56
       }
-    ]
+    ],
+    "rating": 4,
+    "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html",
+    "userAssociations": []
   },
   {
-    "id": 2,
-    "fundType": "Equities (Passive)",
-    "funds": [
+    "ticker": "VFIFX",
+    "name": "Vanguard Target Retirement 2050",
+    "type": "Multi-Asset",
+    "risk": "LM",
+    "return": "MH",
+    "expenseRatio": 0.15,
+    "returns": [
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 0,
+        "value": -8.49
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 1,
+        "value": -8.74
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 3,
+        "value": 6.35
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 5,
+        "value": 5.09
+      },
+      {
+        "period": 10,
+        "value": 10.57
       }
-    ]
+    ],
+    "rating": 4,
+    "quoteLink": "http://beta.morningstar.com/funds/xnas/vfifx/quote.html",
+    "userAssociations": []
   },
   {
-    "id": 3,
-    "fundType": "Fixed Income (Passive)",
-    "funds": [
+    "ticker": "VTMNX",
+    "name": "Vanguard Developed Markets Index",
+    "type": "Equities (Passive)",
+    "risk": "MH",
+    "return": "MH",
+    "expenseRatio": 0.06,
+    "returns": [
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 0,
+        "value": -14.85
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 1,
+        "value": -14.90
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 3,
+        "value": 3.19
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 5,
+        "value": 0.88
+      },
+      {
+        "period": 10,
+        "value": 6.69
       }
-    ]
+    ],
+    "rating": 4,
+    "quoteLink": "http://beta.morningstar.com/funds/xnas/vtmnx/quote.html",
+    "userAssociations": []
   },
   {
-    "id": 4,
-    "fundType": "Equities (Active)",
-    "funds": [
+    "ticker": "VEMIX",
+    "name": "Vanguard Emerging Markets Index",
+    "type": "Equities (Passive)",
+    "risk": "MH",
+    "return": "MH",
+    "expenseRatio": 0.11,
+    "returns": [
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 0,
+        "value": -14.89
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 1,
+        "value": -14.51
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 3,
+        "value": 7.43
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 5,
+        "value": 1.42
+      },
+      {
+        "period": 10,
+        "value": 7.81
       }
-    ]
+    ],
+    "rating": 4,
+    "quoteLink": "http://beta.morningstar.com/funds/xnas/vemix/quote.html",
+    "userAssociations": []
   },
   {
-    "id": 5,
-    "fundType": "Fixed Income (Active)",
-    "funds": [
+    "ticker": "VBTIX",
+    "name": "Vanguard Total Bond Index",
+    "type": "Fixed Income (Passive)",
+    "risk": "MH",
+    "return": "MH",
+    "expenseRatio": 0.11,
+    "returns": [
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 0,
+        "value": -0.23
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 1,
+        "value": -0.11
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 3,
+        "value": 1.91
       },
       {
-        "ticker": "vtivx",
-        "name": "Vanguard Target Requirement",
-        "risk": "LM",
-        "return": "MH",
-        "expenseRatio": 0.15,
-        "returns": [
-          {
-            "period": 0,
-            "value": 2.27
-          },
-          {
-            "period": 1,
-            "value": 11.7
-          },
-          {
-            "period": 3,
-            "value": 9.04
-          },
-          {
-            "period": 5,
-            "value": 9.49
-          },
-          {
-            "period": 10,
-            "value": 5.67
-          }
-        ],
-        "rating": 4,
-        "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html"
+        "period": 5,
+        "value": 2.43
+      },
+      {
+        "period": 10,
+        "value": 3.42
       }
-    ]
+    ],
+    "rating": 3,
+    "quoteLink": "http://beta.morningstar.com/funds/xnas/vbtix/quote.html",
+    "userAssociations": []
+  },
+  {
+    "ticker": "CSRIX",
+    "name": "Cohen & Steers Institutional Realty",
+    "type": "Equities (Active)",
+    "risk": "M",
+    "return": "MH",
+    "expenseRatio": 0.75,
+    "returns": [
+      {
+        "period": 0,
+        "value": -4.36
+      },
+      {
+        "period": 1,
+        "value": -4.42
+      },
+      {
+        "period": 3,
+        "value": 2.84
+      },
+      {
+        "period": 5,
+        "value": 8.26
+      },
+      {
+        "period": 10,
+        "value": 12.78
+      }
+    ],
+    "rating": 4,
+    "quoteLink": "https://www.morningstar.com/funds/xnas/csrix/quote.html",
+    "userAssociations": []
+  },
+  {
+    "ticker": "DFFVX",
+    "name": "DFA US Targeted Value",
+    "type": "Equities (Active)",
+    "risk": "M",
+    "return": "MH",
+    "expenseRatio": 0.37,
+    "returns": [
+      {
+        "period": 0,
+        "value": -16.37
+      },
+      {
+        "period": 1,
+        "value": -17.01
+      },
+      {
+        "period": 3,
+        "value": 4.80
+      },
+      {
+        "period": 5,
+        "value": 2.51
+      },
+      {
+        "period": 10,
+        "value": 12.41
+      }
+    ],
+    "rating": 3,
+    "quoteLink": "https://www.morningstar.com/funds/xnas/dffvx/quote.html",
+    "userAssociations": []
+  },
+  {
+    "ticker": "DIPSX",
+    "name": "DFA Inflation Protected Securities",
+    "type": "Fixed Income (Active)",
+    "risk": "MH",
+    "return": "MH",
+    "expenseRatio": 0.12,
+    "returns": [
+      {
+        "period": 0,
+        "value": -1.38
+      },
+      {
+        "period": 1,
+        "value": -1.04
+      },
+      {
+        "period": 3,
+        "value": 2.10
+      },
+      {
+        "period": 5,
+        "value": 1.71
+      },
+      {
+        "period": 10,
+        "value": 3.62
+      }
+    ],
+    "rating": 4,
+    "quoteLink": "https://www.morningstar.com/funds/xnas/dipsx/quote.html",
+    "userAssociations": []
+  },
+  {
+    "ticker": "NPHIX",
+    "name": "American Century High Income",
+    "type": "Fixed Income (Active)",
+    "risk": "MH",
+    "return": "MH",
+    "expenseRatio": 0.59,
+    "returns": [
+      {
+        "period": 0,
+        "value": -2.16
+      },
+      {
+        "period": 1,
+        "value": -2.18
+      },
+      {
+        "period": 3,
+        "value": 7.20
+      },
+      {
+        "period": 5,
+        "value": 3.60
+      },
+      {
+        "period": 10,
+        "value": 0
+      }
+    ],
+    "rating": 4,
+    "quoteLink": "https://www.morningstar.com/funds/xnas/nphix/quote.html",
+    "userAssociations": []
   }
 ]

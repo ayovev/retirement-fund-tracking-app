@@ -1,7 +1,5 @@
 `use strict`;
 
-require(`dotenv`).config({ path: `../.env` });
-
 const path = require(`path`);
 const moment = require(`moment`);
 const morgan = require(`morgan`);
@@ -119,4 +117,4 @@ app.route(`/api/status`)
     });
   });
 
-app.listen(PORT, () => console.info(`Listening on localhost:${PORT}`));
+app.listen(PORT, () => console.info(`Listening on http://localhost:${PORT}`));

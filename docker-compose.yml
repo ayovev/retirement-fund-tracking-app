@@ -10,8 +10,8 @@ services:
       - /app-client/node_modules
     ports:
       - 3000:3000
-    links:
-      - app-server
+    networks:
+      - frontend
     restart: on-failure
     environment:
       - CHOKIDAR_USEPOLLING=true
@@ -26,8 +26,12 @@ services:
       - /app-server/node_modules
     ports:
       - 3001:3001
-    links:
-      - mongo
+    networks:
+      - backend
+      - frontend
+    environment:
+      - ALPHAVANTAGE_API_KEY=
+      - TOKEN_SECRET=
     restart: on-failure
     environment:
       - CHOKIDAR_USEPOLLING=true
@@ -37,14 +41,16 @@ services:
     image: mongo:4.0
     ports:
       - 27017:27017
+    networks:
+      - backend
 
   mongo-seed:
     container_name: mongo-seed
     image: mongo:4.0
     volumes:
       - ./app-server/data:/seed/data
-    links:
-      - mongo
+    networks:
+      - backend
     depends_on:
       - mongo
     command: bash -c "mongo retirement --host mongo --eval \"db.dropDatabase()\" &&
@@ -55,13 +61,21 @@ services:
     container_name: mongo-admin
     image: mrvautin/adminmongo:latest
     environment:
-      - CONN_NAME=admin-connection
-      - DB_HOST=mongo
-      - DB_PORT=27017
+      - CONN_NAME=
+      - DB_HOST=
+      - DB_PORT=
+      - HOST=
+      - PORT=
     ports:
       - 1234:1234
       - 27018:1234
-    links:
-      - mongo
+    networks:
+      - backend
     depends_on:
       - mongo
+
+networks:
+  backend:
+    driver: bridge
+  frontend:
+    driver: bridge

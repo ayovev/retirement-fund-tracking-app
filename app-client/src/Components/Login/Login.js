@@ -45,7 +45,7 @@ export default class Login extends Component {
       body: JSON.stringify(data)
     };
 
-    let response = await fetch(`/api/login`, config);
+    const response = await fetch(`/api/login`, config);
 
     /* eslint indent: ["error", 2, { "SwitchCase": 1 }]*/
     switch (response.status) {
