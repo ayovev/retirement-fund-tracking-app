@@ -1,4 +1,4 @@
-FROM node:10.11
+FROM node:10.11-alpine
 
 RUN mkdir -p /app-client
 
@@ -8,6 +8,6 @@ COPY package*.json /app-client/
 
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 3000 9228
 
-CMD ["npm","start"]
+ENTRYPOINT ["npm","start"]
