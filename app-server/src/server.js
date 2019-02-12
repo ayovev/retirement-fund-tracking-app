@@ -1,22 +1,25 @@
 `use strict`;
 
 const path = require(`path`);
-const moment = require(`moment`);
 const morgan = require(`morgan`);
 const jwt = require(`jsonwebtoken`);
 const cookieParser = require(`cookie-parser`);
 const express = require(`express`);
+const { MongoClient, ObjectID } = require(`mongodb`);
 const app = express();
 
 const DATABASE_URI = require(`./database`);
-
-require(`mongodb`).MongoClient.connect(DATABASE_URI, { useNewUrlParser: true, poolSize: 10 }, (error, client) => {
-  app.locals.MongoClient = client;
-});
-
 const testUpdate = require(`./getData`).testUpdate;
 
-const PORT = process.env.PORT || 3001;
+MongoClient.connect(DATABASE_URI, { useNewUrlParser: true, poolSize: 5 }, (error, client) => {
+  app.locals.MongoClient = client;
+  app.locals.Database = app.locals.MongoClient.db(`rta`);
+  app.locals.UsersCollection = app.locals.Database.collection(`users`);
+  app.locals.FundsCollection = app.locals.Database.collection(`funds`);
+});
+
+const HOST = `0.0.0.0`;
+const PORT = process.env.NODE_ENV === `production` ? 8080 : 3001;
 
 /* Express Middleware */
 
@@ -27,7 +30,7 @@ app.use(express.json());
 app.use(morgan(`dev`));
 
 // Serve any static files
-app.use(express.static(path.join(__dirname, `app-client/build`)));
+app.use(express.static(path.join(__dirname, `../..`, `app-server/build`)));
 
 // Parse request cookies
 app.use(cookieParser());
@@ -36,13 +39,9 @@ app.use(cookieParser());
 
 app.route(`/api/login`)
   .post(async (request, response) => {
-    const client = request.app.locals.MongoClient;
+    const { UsersCollection } = request.app.locals;
 
-    const database = client.db();
-
-    const collection = database.collection(`accounts`);
-
-    const user = await collection.findOne({ email: { $eq: request.body.email } });
+    const user = await UsersCollection.findOne({ email: { $eq: request.body.email } });
 
     if (!user) {
       response.sendStatus(404);
@@ -61,31 +60,25 @@ app.route(`/api/login`)
 
 app.route(`/api/funds`)
   .get(async (request, response) => {
-    // const token = request.cookies[`rtaToken`];
-    // const email = await jwt.verify(token, process.env.TOKEN_SECRET);
+    let token = request.cookies[`rtaToken`];
+    token = await jwt.verify(token, process.env.TOKEN_SECRET);
 
-    const client = request.app.locals.MongoClient;
+    const userID = token.data;
 
-    const database = client.db();
+    const { FundsCollection } = request.app.locals;
 
-    const collection = database.collection(`funds`);
+    const funds = await FundsCollection.find({ userAssociations: userID }).toArray();
 
-    const result = await collection.find().toArray();
-
-    response.send(result);
+    response.send(funds);
   });
 
 // refactor this and make it more clear
 app.route(`/api/testUpdate`)
   .get(async (request, response) => {
     try {
-      const client = request.app.locals.MongoClient;
+      const { FundsCollection } = request.app.locals;
 
-      const database = client.db();
-
-      const collection = database.collection(`funds`);
-
-      const result = await collection.findOne({ fundType: `Multi-Asset` });
+      const result = await FundsCollection.findOne({ fundType: `Multi-Asset` });
 
       const funds = result.funds;
 
@@ -95,7 +88,7 @@ app.route(`/api/testUpdate`)
 
       result.funds = funds;
 
-      await collection.replaceOne({ fundType: `Multi-Asset` }, result);
+      await FundsCollection.replaceOne({ fundType: `Multi-Asset` }, result);
 
       response.sendStatus(200);
     }
@@ -105,16 +98,40 @@ app.route(`/api/testUpdate`)
     }
   });
 
-// refactor status endpoint
 app.route(`/api/status`)
   .get(async (request, response) => {
-    // include database status in this status check response
+    databaseCheck = () => {
+      const { MongoClient } = request.app.locals;
+      return MongoClient.isConnected();
+    };
 
-    response.send({
-      datetime: moment().utcOffset(-7).format(`YYYY-MM-DD HH:mm:ss`),
-      service: `app-server`,
-      status: 200
-    });
+    const databaseStatus = databaseCheck();
+
+    if (databaseStatus) {
+      response.sendStatus(200);
+    }
+    else {
+      response.sendStatus(422);
+    }
   });
 
-app.listen(PORT, () => console.info(`Listening on http://localhost:${PORT}`));
+app.route(`/api/admin/permissions`)
+  .get(async (request, response) => {
+    let token = request.cookies[`rtaToken`];
+    token = await jwt.verify(token, process.env.TOKEN_SECRET);
+
+    const userID = token.data;
+
+    const { UsersCollection } = request.app.locals;
+
+    const result = await UsersCollection.findOne({ _id: ObjectID(userID) });
+
+    response.send(Object(result.role));
+  });
+
+app.route(`*`)
+  .get((request, response) => {
+    response.sendFile(path.join(__dirname, `../..`, `app-server/build/index.html`));
+  });
+
+app.listen(PORT, HOST, () => console.info(`Listening on http://${HOST}:${PORT}`));
