@@ -10,7 +10,8 @@
     "react-scripts": "^2.1.3"
   },
   "scripts": {
-    "start": "react-scripts --inspect=0.0.0.0:9228 start",
+    "start:dev": "react-scripts --inspect=0.0.0.0:9228 start",
+    "start:prod": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
