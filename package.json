@@ -14,7 +14,9 @@
     "install:app-server": "cd app-server && npm install && cd ..",
     "lint:app-client": "cd app-client && npm run lint && cd ..",
     "lint:app-server": "cd app-server && npm run lint && cd ..",
-    "lint": "npm run lint:app-client && npm run lint:app-server"
+    "lint": "npm run lint:app-client && npm run lint:app-server",
+    "start:dev": "docker-compose -f docker-compose.override.yml up",
+    "start:prod": "docker-compose -f docker-compose.yml up"
   },
   "contributors": [
     "Justin Peterson",
