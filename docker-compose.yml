@@ -1,81 +1,13 @@
 version: "3"
 services:
-  app-client:
-    container_name: app-client
-    build:
-      context: ./app-client
-      dockerfile: Dockerfile
-    volumes:
-      - ./app-client:/app-client
-      - /app-client/node_modules
+  app:
+    image: ayovev/retirement-tracking-app
+    container_name: app
     ports:
-      - 3000:3000
-    networks:
-      - frontend
-    restart: on-failure
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-
-  app-server:
-    container_name: app-server
-    build:
-      context: ./app-server
-      dockerfile: Dockerfile
-    volumes:
-      - ./app-server:/app-server
-      - /app-server/node_modules
-    ports:
-      - 3001:3001
-    networks:
-      - backend
-      - frontend
+      - 8080
     environment:
       - ALPHAVANTAGE_API_KEY=
+      - DATABASE_USER=
+      - DATABASE_PASSWORD=
       - TOKEN_SECRET=
     restart: on-failure
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-
-  mongo:
-    container_name: mongo
-    image: mongo:4.0
-    ports:
-      - 27017:27017
-    networks:
-      - backend
-
-  mongo-seed:
-    container_name: mongo-seed
-    image: mongo:4.0
-    volumes:
-      - ./app-server/data:/seed/data
-    networks:
-      - backend
-    depends_on:
-      - mongo
-    command: bash -c "mongo retirement --host mongo --eval \"db.dropDatabase()\" &&
-                      mongoimport --host mongo --db retirement --collection funds --file \"/seed/data/funds.json\" --jsonArray &&
-                      mongoimport --host mongo --db retirement --collection accounts --file \"/seed/data/accounts.json\" --jsonArray"
-
-  mongo-admin:
-    container_name: mongo-admin
-    image: mrvautin/adminmongo:latest
-    environment:
-      - CONN_NAME=
-      - DB_HOST=
-      - DB_PORT=
-      - HOST=
-      - PORT=
-    ports:
-      - 1234:1234
-      - 27018:1234
-    networks:
-      - backend
-    depends_on:
-      - mongo
-
-networks:
-  backend:
-    driver: bridge
-  frontend:
-    driver: bridge

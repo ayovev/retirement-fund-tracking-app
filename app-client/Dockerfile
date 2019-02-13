@@ -4,10 +4,12 @@ RUN mkdir -p /app-client
 
 WORKDIR /app-client
 
-COPY package*.json /app-client/
+COPY package.json package-lock.json ./
 
 RUN npm install
 
+COPY . .
+
 EXPOSE 3000 9228
 
-ENTRYPOINT ["npm","start"]
+ENTRYPOINT ["npm","run","start:dev"]

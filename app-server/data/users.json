@@ -4,13 +4,15 @@
     "password": "fcea920f7412b5da7be0cf42b8c93759",
     "firstName": "Alex",
     "lastName": "Yovev",
-    "birthdate": "06/05/1997"
+    "birthdate": "06/05/1997",
+    "role": "administrator"
   },
   {
     "email": "justinp@funfunds.com",
     "password": "fcea920f7412b5da7be0cf42b8c93759",
     "firstName": "Justin",
     "lastName": "Peterson",
-    "birthdate": "02/05/1988"
+    "birthdate": "02/05/1988",
+    "role": "administrator"
   }
 ]

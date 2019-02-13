@@ -1,0 +1,10 @@
+Dockerfile
+.eslintignore
+.eslintrc.js
+README.md
+
+node_modules
+.vscode
+build
+.DS_Store
+.env

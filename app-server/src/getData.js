@@ -160,5 +160,5 @@ function toWeekday(date) {
 }
 
 module.exports = {
-  testUpdate: testUpdate
+  testUpdate
 };
