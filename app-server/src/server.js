@@ -2,6 +2,7 @@
 
 const path = require(`path`);
 const morgan = require(`morgan`);
+// const winston = require(`winston`);
 const jwt = require(`jsonwebtoken`);
 const cookieParser = require(`cookie-parser`);
 const express = require(`express`);
@@ -9,9 +10,12 @@ const { MongoClient, ObjectID } = require(`mongodb`);
 const app = express();
 
 const DATABASE_URI = require(`./database`);
-const testUpdate = require(`./getData`).testUpdate;
 
-MongoClient.connect(DATABASE_URI, { useNewUrlParser: true, poolSize: 5 }, (error, client) => {
+const primaryDataAggregator = require(`../src/dataAggregators`).primary;
+const secondaryDataAggregator = require(`../src/dataAggregators`).secondary;
+const fallbackDataAggregator = require(`../src/dataAggregators`).fallback;
+
+MongoClient.connect(DATABASE_URI, { useNewUrlParser: true, poolSize: 10 }, (error, client) => {
   app.locals.MongoClient = client;
   app.locals.Database = app.locals.MongoClient.db(`rta`);
   app.locals.UsersCollection = app.locals.Database.collection(`users`);
@@ -21,21 +25,10 @@ MongoClient.connect(DATABASE_URI, { useNewUrlParser: true, poolSize: 5 }, (error
 const HOST = `0.0.0.0`;
 const PORT = process.env.NODE_ENV === `production` ? 8080 : 3001;
 
-/* Express Middleware */
-
-// Parse JSON payloads
 app.use(express.json());
-
-// Log requested resource and HTTP status code
 app.use(morgan(`dev`));
-
-// Serve any static files
 app.use(express.static(path.join(__dirname, `../..`, `app-server/build`)));
-
-// Parse request cookies
 app.use(cookieParser());
-
-/* Route Handlers */
 
 app.route(`/api/login`)
   .post(async (request, response) => {
@@ -51,7 +44,7 @@ app.route(`/api/login`)
     }
     else {
       response.clearCookie(`rtaToken`);
-      const token = await jwt.sign({ data: user._id }, process.env.TOKEN_SECRET, { expiresIn: `1h` });
+      const token = await jwt.sign({ data: user._id }, process.env.TOKEN_SECRET, { expiresIn: `30m` });
 
       response.cookie(`rtaToken`, token.toString(), { httpOnly: true });
       response.sendStatus(200);
@@ -59,38 +52,53 @@ app.route(`/api/login`)
   });
 
 app.route(`/api/funds`)
-  .get(async (request, response) => {
-    let token = request.cookies[`rtaToken`];
-    token = await jwt.verify(token, process.env.TOKEN_SECRET);
+  .get(async (request, response, next) => {
+    try {
+      let token = request.cookies[`rtaToken`];
+      token = await jwt.verify(token, process.env.TOKEN_SECRET);
 
-    const userID = token.data;
+      const userID = token.data;
 
-    const { FundsCollection } = request.app.locals;
+      const { FundsCollection } = request.app.locals;
 
-    const funds = await FundsCollection.find({ userAssociations: userID }).toArray();
+      const funds = await FundsCollection.find({ userAssociations: userID }).toArray();
 
-    response.send(funds);
+      response.send(funds);
+    }
+    catch (error) {
+      next(error);
+    }
   });
 
 // refactor this and make it more clear
-app.route(`/api/testUpdate`)
+app.route(`/api/update`)
   .get(async (request, response) => {
     try {
+      const waitTime = 15;
+
+      response.status(202).send(`Updating all funds`);
+
       const { FundsCollection } = request.app.locals;
 
-      const result = await FundsCollection.findOne({ fundType: `Multi-Asset` });
-
-      const funds = result.funds;
+      const funds = await FundsCollection.find().toArray();
 
       for (const fund of funds) {
-        fund.returns = await testUpdate(fund.ticker);
+        try {
+          console.info(`Updating ${fund.ticker}`);
+
+          fund.returns = await primaryDataAggregator.update(fund.ticker);
+          fund.lastUpdated = new Date();
+
+          FundsCollection.replaceOne({ _id: ObjectID(fund._id) }, fund);
+
+          console.info(`Sleeping for ${waitTime} seconds`);
+          await sleep(waitTime);
+        }
+        catch (error) {
+          console.error(`Could not update fund ${fund.ticker}`);
+          continue;
+        }
       }
-
-      result.funds = funds;
-
-      await FundsCollection.replaceOne({ fundType: `Multi-Asset` }, result);
-
-      response.sendStatus(200);
     }
     catch (error) {
       console.error(`ERROR: Something went wrong while trying to update funds`);
@@ -133,5 +141,15 @@ app.route(`*`)
   .get((request, response) => {
     response.sendFile(path.join(__dirname, `../..`, `app-server/build/index.html`));
   });
+
+app.use((error, request, response, next) => {
+  response.status(400).send(error);
+});
+
+function sleep(seconds) {
+  const milliseconds = seconds * 1000;
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
 
 app.listen(PORT, HOST, () => console.info(`Listening on http://${HOST}:${PORT}`));
