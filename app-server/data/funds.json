@@ -30,7 +30,8 @@
     ],
     "rating": 4,
     "quoteLink": "http://beta.morningstar.com/funds/xnas/vtivx/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   },
   {
     "ticker": "VFIFX",
@@ -63,7 +64,8 @@
     ],
     "rating": 4,
     "quoteLink": "http://beta.morningstar.com/funds/xnas/vfifx/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   },
   {
     "ticker": "VTMNX",
@@ -96,7 +98,8 @@
     ],
     "rating": 4,
     "quoteLink": "http://beta.morningstar.com/funds/xnas/vtmnx/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   },
   {
     "ticker": "VEMIX",
@@ -129,7 +132,8 @@
     ],
     "rating": 4,
     "quoteLink": "http://beta.morningstar.com/funds/xnas/vemix/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   },
   {
     "ticker": "VBTIX",
@@ -162,7 +166,8 @@
     ],
     "rating": 3,
     "quoteLink": "http://beta.morningstar.com/funds/xnas/vbtix/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   },
   {
     "ticker": "CSRIX",
@@ -195,7 +200,8 @@
     ],
     "rating": 4,
     "quoteLink": "https://www.morningstar.com/funds/xnas/csrix/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   },
   {
     "ticker": "DFFVX",
@@ -228,7 +234,8 @@
     ],
     "rating": 3,
     "quoteLink": "https://www.morningstar.com/funds/xnas/dffvx/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   },
   {
     "ticker": "DIPSX",
@@ -261,7 +268,8 @@
     ],
     "rating": 4,
     "quoteLink": "https://www.morningstar.com/funds/xnas/dipsx/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   },
   {
     "ticker": "NPHIX",
@@ -294,6 +302,7 @@
     ],
     "rating": 4,
     "quoteLink": "https://www.morningstar.com/funds/xnas/nphix/quote.html",
-    "userAssociations": []
+    "userAssociations": [],
+    "lastUpdated": ""
   }
 ]
